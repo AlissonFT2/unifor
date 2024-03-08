@@ -22,7 +22,7 @@ F & G --> H([FIM])
 #### Pseudocódigo
 ```
 ALGORITIMO media_notas
-DECLARE n1, n2, media: FLOAT
+DECLARE n1, n2, media: float
 ESCREVA "Digite suas notas: "
 INICIO
 LEIA n1, n2

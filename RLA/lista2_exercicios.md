@@ -352,6 +352,51 @@ FIM
 | 0.0 | 0.0 | 0.0 | Área = 0.0 <br> Perimetro = 0.0
 | 1.0 | 3.14 | 6.28 | Área = 3.14 <br> Perimetro = 6.28
 
+### Exercício 11
+Faça um programa que receba um número positivo e maior que zero, calcule e mostre: a) o número digitado ao quadrado; <br>b) o número digitado ao cubo;<br> c) a raiz quadrada do número digitado;<br> d) a raiz cúbica do número digitado.
+#### Fluxograma
+
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{Digite um número: }}
+B --> C[/num, num_pow3, num_sqrt, num_s3/]
+C --> D{num > 0}
+D --NAO--> E{{O número digitado não e maior que zero}}
+D --SIM--> F[num_pow3 = num**3]
+F --> G["num_sqrt = num**(1/2)"]
+G --> H["num_s3 = num**(1/3)"]
+H --> L{{`O número elevado ao quadrado é: num_pow3`, num_pow3 <br> `A raiz quadrada do número é: num_sqrt`, num_sqrt <br> `A raiz cubica do número é: num_s3`, num_s3}}
+L & E --> M([FIM])
+```
+#### Pseudocódigo
+```
+ALGORITMO operacao_num
+DECLARE num, num_pow3, num_sqrt, num_s3: float
+INICIO
+ESCREVA "Digite um número: "
+LEIA num
+SE num > 0 ENTAO
+	num_pow3 <- num**3
+	num_sqrt <- num**(1/2)
+	num_s3 <- num**(1/3)
+	ESCREVA "O número elevado ao quadrado é: num_pow3", num_pow3
+	ESCREVA "A raiz quadrada do número é: num_sqrt", num_sqrt
+	ESCREVA "A raiz cubica do número é: num_s3", num_s3
+SENAO
+	ESCREVA "O número digitado não e maior que zero"
+FIM_SE
+FIM
+```
+
+#### Teste
+| num | num > 0 | num_pow3 | num_sqrt | num_s3 | saída |
+| -- | -- | -- | -- | -- | -- |
+| 5.0 | True |125.0 | 2.2   | 1.7 | O número elevado ao quadrado é: 125.0 <br> A raiz quadrada do número é: 2.2 <br> A raiz cubica do número é: 1.7
+| -3.0 | False |  |  | | O número digitado não e maior que zero
+
+
+
+
 
 
 

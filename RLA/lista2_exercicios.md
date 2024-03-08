@@ -129,7 +129,7 @@ F --> G([FIM])
 ALGORITMO preco_fabrica_para_preco_consumidor
 DECLARE preco_fabrica, preco_consumidor: float
 INICIO
-ESCREVA "Digite o preçp de fabrica do carro: "
+ESCREVA "Digite o preço de fabrica do carro: "
 LEIA preco_fabrica
 preco_consumidor <- (preco_fabrica * 1.12) + (preco_fabrica * 0.45)
 ESCREVA "O preço do carro para o consumidor é: preco_consumidor", preco_consumidor

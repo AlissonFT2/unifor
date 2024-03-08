@@ -282,6 +282,42 @@ FIM
 | Pedro | 10.0 | 10.0 | 10.0 |A sua media foi: 10.0 |
 | Enzo | 3.5 | 7.8 | 4.9 | A sua media foi: 4.9|
 
+### Exercício 9
+Suponha que você deseja preencher a seguinte ficha de inscrição de um estudante: nome, matrícula, curso, idade, e-mail. Imprima os dados do usuário como uma ficha preenchida.
+
+#### Fluxograma
+
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{Digite seu nome, matrícula, curso, idade e e-mail: }} 
+B --> C[/nome, matricula, curso, idade, mail/]
+C --> F{{`FICHA DE INSCRIÇÃO <br> Nome: nome <br> Matrícula: matricula <br> Curso: curso <br> idade: idade <br> e-mail: mail` <br>,nome, matricula, curso, idade}}
+F --> G([FIM])
+
+```
+#### Pseudocódigo
+```
+ALGORITMO ficha_de_inscricao
+DECLARE nome, matricula, curso, mail: string, idade: int
+INICIO
+ESCREVA "Digite seu nome, matrícula, curso, idade e e-mail: "
+LEIA nome, matricula, curso, mail, idade
+ESCREVA "FICHA DE INSCRIÇÃO"
+ESCREVA "Nome: nome", nome
+ESCREVA "Matrícula: matricula", matricula
+ESCREVA "Curso: curso", curso
+ESCREVA "idade: idade", idade
+ESCREVA "e-mail: mail", mail
+FIM
+```
+
+#### Teste
+| nome | matricula | curso | mail | idade | saída |
+| -- | -- | -- | -- | -- | -- |
+| Pedro | 2418631 | Eng. Computação | pedro@edu.unifor.br | 18 | FICHA DE INSCRIÇÃO <br> Nome: Pedro <br> Matrícula: 2418631 <br> Curso: Eng. Computação <br> Idade: 18 <br> e-mail: pedro@edu.unifor.br  |
+
+
+
 
 
 

@@ -397,6 +397,69 @@ FIM
 | 5.0 | True | 25.0 |125.0 | 2.2   | 1.7 | O número elevado ao quadrado é: 25.0 <br> O número elevado ao cubo é: 125.0 <br> A raiz quadrada do número é: 2.2 <br> A raiz cubica do número é: 1.7
 | -3.0 | False | | |  | | O número digitado não e maior que zero
 
+### Exercício 12
+Faça um algoritmo que lê três números inteiros e mostra-os em ordem crescente.
+#### Fluxograma
+
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{Digite tres números: }}
+B --> C[/n1, n2, n3/]
+C --> D{n1 <= n2 and n1 <= n3}
+D --NAO--> E{n2 <= n1 and n2 <= n3}
+E --NAO--> F{n1 <= n2}
+F --NAO--> G{{n3, n2, n1}}
+D --SIM--> H{n2 <= n3}
+H --NAO--> L{{n1, n3, n2}}
+E --SIM--> M{n1 <= n3}
+M --NAO--> O{{n1, n3, n1}}
+F --SIM--> P{{n3, n1, n2}}
+M --SIM--> Q{{n2, n1, n3}}
+H --SIM--> R{{n1, n2, n3}}
+R & Q & P & O & L & G --> T([FIM])
+
+```
+#### Pseudocódigo
+```
+ALGORITMO ordem_crescente
+DECLARE n1, n2, n3: int
+INICIO
+ESCREVA "Digite tres números: "
+LEIA n1, n2, n3
+SE n1 <= n2 and n1 <= n3 ENTAO
+	SE n2 <= n3 ENTAO
+		ESCREVA n1, n2, n3
+	SENAO
+		ESCREVA n1, n3, n2
+	FIM_SE
+SENAO
+	SE n2 <= n1 and n2 <= n3 ENTAO
+		SE n1 <= n3 ENTAO
+			ESCREVA n2, n1, n3
+		SENAO
+			ESCREVA n1, n3, n1
+		FIM_SE
+FIM_SE
+	SENAO
+		SE n1 <= n2 ENTAO
+			ESCREVA n3, n1, n2
+		SENAO
+			ESCREVA n3, n2, n1
+		FIM_SE
+FIM_SE
+FIM
+```
+
+#### Teste
+| n1 | n2 | n3 | saída | 
+| -- | -- | -- | -- |
+| 3 | 10 |5 | 3 / 5 / 10   |
+| 9 | 5 | 9 | 5 / 9 / 9 | 
+| 15 | 11 | 10 | 10 / 11 / 15 | 
+
+
+
+
 
 
 

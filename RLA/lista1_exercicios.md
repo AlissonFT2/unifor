@@ -128,6 +128,45 @@ FIM
 | 10 | True | 0 | True | "O número é par!" 
 | 11 | True | 1 | False | "O número e impar" 
 
+### Exercício 4
+Represente, em fluxograma e pseudocódigo, um algoritmo que, a partir da idade do candidato(a), determinar se pode ou não tirar a CNH. Caso não atender a restrição de idade, calcular quantos anos faltam para o candidato estar apto.
+
+#### Fluxograma
+
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{Digite sua idade: }} 
+B --> C[/idade, falta/]
+C --> D{idade >= 18}
+D --NAO--> E[falta = 18 - idade]
+D --SIM--> F{{Pode retirar CNH}}
+E --> G{{falta `falta` anos}}
+G & F --> H([FIM]) 
+
+```
+#### Pseudocódigo
+```
+ALGORITMO pode_retirar_cnh
+DECLARE idade, falta: int
+INICIO
+ESCREVA "Digite sua idade: "
+LEIA idade
+SE idade >= 18 ENTAO
+	ESCREVA "Pode retirar CNH"
+SENAO
+	falta <- 18 - idade
+	Escreva f"falta {falta} ano(s)"
+FIM_SE
+FIM
+```
+
+#### Teste
+| idade | idade >= 18 | falta | saída |
+| -- | -- | -- | -- |
+| 17 | False | 1 | falta 1 ano(s) | 
+| 18 | True |  | Pode retirar CNH |
+| 23 | True |  | Pode retirar CNH | 
+
 
 
 

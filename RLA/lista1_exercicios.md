@@ -46,7 +46,11 @@ FIM
 #### Teste
 | num | num >= 0 | resto | resto == 0 | saída |
 | -- | -- | -- | -- | -- |
-| -1 | False |  |  | "O número deve ser positivo" | 0 | True | 0 | True | "O número é par !" | 10 | True | 0 | True | "O número é par!" | 11 | True | 1 | False | "O número e impar" 
+| -1 | False |  |  | "O número deve ser positivo" 
+| 0 | True | 0 | True | "O número é par !" 
+| 10 | True | 0 | True | "O número é par!" 
+| 11 | True | 1 | False | "O número e impar" 
+
 
 
 

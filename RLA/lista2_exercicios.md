@@ -216,6 +216,42 @@ FIM
 | 0 | 3 | 4 | 0 | 2 |23.5 | O total foi: 23.5 |
 | 0 | 0 | 0 | 0 | 0 | 0 | O total foi: 0.0  
 
+### Exercício 7
+Uma companhia de carros paga a seus empregados um salário de R$ 500,00 por mês mais uma comissão de R$ 50,00 para cada carro vendido e mais 5% do valor da venda. Elabore um algoritmo para calcular e imprimir o salário do vendedor num dado mês recebendo como dados de entrada o nome do vendedor, o número de carros vendidos e o valor total das vendas.
+
+#### Fluxograma
+
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{Digite seu nome o número de carros vendidos e o valor total das vendas: }} 
+B --> C[/nome, qts_carr, vendas, salario/]
+C --> D["salario = 500.00 + (qts_carr * 50.00) + (vendas * 0.05)"]
+D --> F{{`O salario foi: salario`, salario}}
+F --> G([FIM])
+
+```
+#### Pseudocódigo
+```
+ALGORITMO salario_funcionario
+DECLARE nome: string, qts_carr: int, vendas, salario: float
+INICIO
+ESCREVA "Digite seu nome o número de carros vendidos e o valor total das vendas: "
+LEIA nome, qts_carr, vendasa
+salario <- 500.00 + (qts_carr * 50.00) + (vendas * 0.05)
+ESCREVA "O salario foi: salario", salario
+FIM
+```
+
+#### Teste
+| nome | qts_carr | vendas | salario | saída |
+| -- | -- | -- | -- | -- |
+| Alisson | 3 | 60000.00 | 3650.00 | O salario foi: 3650.00 |
+| Pedro | 0 | 0 | 500.00 |O salario foi: 500.00 |
+| Enzo | 11 | 2000000.00 | 101050.00 | O salario foi: 101050.00|
+
+
+
+
 
 
 

@@ -359,27 +359,30 @@ Faça um programa que receba um número positivo e maior que zero, calcule e mos
 ```mermaid
 flowchart TD
 A([INICIO]) --> B{{Digite um número: }}
-B --> C[/num, num_pow3, num_sqrt, num_s3/]
+B --> C[/num, num_pow2, num_pow3, num_sqrt, num_s3/]
 C --> D{num > 0}
 D --NAO--> E{{O número digitado não e maior que zero}}
 D --SIM--> F[num_pow3 = num**3]
 F --> G["num_sqrt = num**(1/2)"]
 G --> H["num_s3 = num**(1/3)"]
-H --> L{{`O número elevado ao quadrado é: num_pow3`, num_pow3 <br> `A raiz quadrada do número é: num_sqrt`, num_sqrt <br> `A raiz cubica do número é: num_s3`, num_s3}}
+H --> I[num_pow2 = num**2]
+I --> L{{`O número elevado ao cubo é: num_pow3`, num_pow3 <br> `A raiz quadrada do número é: num_sqrt`, num_sqrt <br> `A raiz cubica do número é: num_s3`, num_s3 <br> `O número elevado ao quadrado é: num_pow2`, num_pow2}}
 L & E --> M([FIM])
 ```
 #### Pseudocódigo
 ```
 ALGORITMO operacao_num
-DECLARE num, num_pow3, num_sqrt, num_s3: float
+DECLARE num, num_pow2, num_pow3, num_sqrt, num_s3: float
 INICIO
 ESCREVA "Digite um número: "
 LEIA num
 SE num > 0 ENTAO
+	num_pow2 <- num**2
 	num_pow3 <- num**3
 	num_sqrt <- num**(1/2)
 	num_s3 <- num**(1/3)
-	ESCREVA "O número elevado ao quadrado é: num_pow3", num_pow3
+	ESCREVA "O número elevado ao quadrado é: num_pow2", num_pow2
+	ESCREVA "O número elevado ao cubo é: num_pow3", num_pow3
 	ESCREVA "A raiz quadrada do número é: num_sqrt", num_sqrt
 	ESCREVA "A raiz cubica do número é: num_s3", num_s3
 SENAO
@@ -389,10 +392,10 @@ FIM
 ```
 
 #### Teste
-| num | num > 0 | num_pow3 | num_sqrt | num_s3 | saída |
-| -- | -- | -- | -- | -- | -- |
-| 5.0 | True |125.0 | 2.2   | 1.7 | O número elevado ao quadrado é: 125.0 <br> A raiz quadrada do número é: 2.2 <br> A raiz cubica do número é: 1.7
-| -3.0 | False |  |  | | O número digitado não e maior que zero
+| num | num > 0 | num_pow2 |num_pow3 | num_sqrt | num_s3 | saída |
+| -- | -- | -- | -- | -- | -- | -- |
+| 5.0 | True | 25.0 |125.0 | 2.2   | 1.7 | O número elevado ao quadrado é: 25.0 <br> O número elevado ao cubo é: 125.0 <br> A raiz quadrada do número é: 2.2 <br> A raiz cubica do número é: 1.7
+| -3.0 | False | | |  | | O número digitado não e maior que zero
 
 
 

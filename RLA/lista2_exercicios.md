@@ -108,4 +108,40 @@ FIM
 | 0.2 | 5.08 | A quantidade de chuva em mm é: 5.08 |
 | 25.5 | 647.7 | A quantidade de chuva em mm é: 647.7 |
 
+### Exercício 4
+O custo ao consumidor de um carro novo é a soma do custo de fábrica com a porcentagem do distribuidor e dos impostos, ambos aplicados ao custo de fábrica. Supondo que a porcentagem do distribuidor seja de 12% e a dos impostos de 45%, prepare um algoritmo para ler o custo de fábrica do carro e imprimir o custo ao consumidor.
+
+#### Fluxograma
+
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{Digite o preço de fabrica do carro: }}
+B --> D[/preco_fabrica, preco_consumidor/]
+D --> E["preco_consumidor = (preco_fabrica * 1.12) + (preco_fabrica * 0.45)"]
+E --> F{{`O preço do carro para o consumidor é: preco_consumidor`,preco_consumidor}}
+F --> G([FIM]) 
+
+
+
+```
+#### Pseudocódigo
+```
+ALGORITMO preco_fabrica_para_preco_consumidor
+DECLARE preco_fabrica, preco_consumidor: float
+INICIO
+ESCREVA "Digite o preçp de fabrica do carro: "
+LEIA preco_fabrica
+preco_consumidor <- (preco_fabrica * 1.12) + (preco_fabrica * 0.45)
+ESCREVA "O preço do carro para o consumidor é: preco_consumidor", preco_consumidor
+FIM
+```
+
+#### Teste
+| preco_fabrica | preco_consumidor | saída |
+| -- | -- | -- | 
+| 1500.0 | 2355.0 | O preço do carro para o consumidor é: 2355.0|
+| 300.0 | 471.0 | O preço do carro para o consumidor é: 471.0|
+| 353.32 | 554.746 | O preço do carro para o consumidor é: 554.746 |
+
+
 

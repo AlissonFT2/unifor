@@ -73,3 +73,39 @@ FIM
 | 0.0 | 32.0 | A temperatura em fahrenheit é: 32.0 |
 | 25.5 | 77.9 | A temperatura em fahrenheit é: 77.9 |
 
+### Exercício 3
+Leia uma quantidade de chuva dada em polegadas e imprima o equivalente em milímetros (25,4 mm = 1 polegada).
+
+#### Fluxograma
+
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{Digite a quantidade de chuva em polegadas: }}
+B --> D[/polegadas, mm/]
+D --> E[mm = polegadas * 25.4]
+E --> F{{`A quantidade de chuva em mm é: mm`,mm}}
+F --> G([FIM]) 
+
+
+
+```
+#### Pseudocódigo
+```
+ALGORITMO polegadas_para_mm
+DECLARE polegadas, mm: float
+INICIO
+ESCREVA "Digite a quantidade de chuva em polegadas: "
+LEIA polegadas
+mm <- polegadas * 25.4
+ESCREVA "A quantidade de chuva em mm é: mm", mm
+FIM
+```
+
+#### Teste
+| polegadas | mm | saída |
+| -- | -- | -- | 
+| 10.0 | 254.0 | A quantidade de chuva em mm é: 254.0 |
+| 0.2 | 5.08 | A quantidade de chuva em mm é: 5.08 |
+| 25.5 | 647.7 | A quantidade de chuva em mm é: 647.7 |
+
+

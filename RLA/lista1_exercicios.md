@@ -62,7 +62,7 @@ G --> H([FIM])
 #### Pseudocódigo
 ```
 ALGORITIMO novo_salario
-DECLARE salario, novo_salario: FLOAT
+DECLARE salario, novo_salario: float
 ESCREVA "Digite seu salario: "
 INICIO
 LEIA salario

@@ -178,6 +178,47 @@ FIM
 | 1.0 | 1.0 | O seu número ao quadrado é: 1.0|
 | 2.3 | 5.29 | O seu número ao quadrado é: 5.29 |
 
+### Exercício 6
+O cardápio de uma lanchonete é dado abaixo. Prepare um algoritmo que leia a quantidade de cada item que você consumiu e calcule a conta final. <br>
+a) Hambúrguer................ R$ 3,00 <br>
+b) Cheeseburger.............. R$ 2,50 <br>
+c) Fritas.................... R$ 2,50 <br>
+d) Refrigerante ............. R$ 1,00 <br>
+e) Milkshake................. R$ 3,00
+
+#### Fluxograma
+
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{Quantos Hambúrgueres, Cheeseburgers, Fritas, Refrigerantes e Milkshakes voçe pediu: }} 
+B --> C[/qts_ham, qts_che, qts_fri, qts_ref, qts_mil, total/]
+C --> D["total = (qts_ham * 3.0) + (qts_che * 2.5) + (qts_fri * 2.5) + (qts_ref * 1.0) + (qts_mil * 3.0)"]
+D --> F{{`O total foi: total`, total}}
+F --> G([FIM])
+
+```
+#### Pseudocódigo
+```
+ALGORITMO total_conta
+DECLARE qts_ham, qts_che, qts_fri, qts_ref, qts_mil: int, total: float
+INICIO
+ESCREVA "Quantos Hambúrgueres, Cheeseburgers, Fritas, Refrigerantes e Milkshakes voçe pediu: "
+LEIA qts_ham, qts_che, qts_fri, qts_ref, qts_mil
+total <- (qts_ham * 3.0) + (qts_che * 2.5) + (qts_fri * 2.5) + (qts_ref * 1.0) + (qts_mil * 3.0)
+ESCREVA "O total foi: total", total
+FIM
+```
+
+#### Teste
+| qts_ham | qts_che | qts_fri | qts_ref | qts_mil | total | saída |
+| -- | -- | -- | -- | -- | -- | -- |
+| 1 | 0 | 1 | 2 | 0 |7.5 | O total foi: 7.5
+| 0 | 3 | 4 | 0 | 2 |23.5 | O total foi: 23.5 |
+| 0 | 0 | 0 | 0 | 0 | 0 | O total foi: 0.0  
+
+
+
+
 
 
 

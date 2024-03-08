@@ -143,5 +143,41 @@ FIM
 | 300.0 | 471.0 | O preço do carro para o consumidor é: 471.0|
 | 353.32 | 554.746 | O preço do carro para o consumidor é: 554.746 |
 
+### Exercício 5
+Calcule o quadrado de um número.
+
+#### Fluxograma
+
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{Digite um número: }}
+B --> D[/n, n_pow/]
+D --> E["n_pow = n**2"]
+E --> F{{`O seu número ao quadrado é: n_pow`, n_pow}}
+F --> G([FIM]) 
+
+
+
+```
+#### Pseudocódigo
+```
+ALGORITMO calc_quadrado_numero
+DECLARE n, n_pow: float
+INICIO
+ESCREVA "Digite um número: "
+LEIA n
+n_pow <- n**2
+ESCREVA "O seu número ao quadrado é: n_pow", n_pow
+FIM
+```
+
+#### Teste
+| n | n_pow | saída |
+| -- | -- | -- | 
+| 5.0 | 25.0 | O seu número ao quadrado é: 25.0|
+| 1.0 | 1.0 | O seu número ao quadrado é: 1.0|
+| 2.3 | 5.29 | O seu número ao quadrado é: 5.29 |
+
+
 
 

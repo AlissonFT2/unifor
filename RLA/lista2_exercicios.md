@@ -316,6 +316,44 @@ FIM
 | -- | -- | -- | -- | -- | -- |
 | Pedro | 2418631 | Eng. Computação | pedro@edu.unifor.br | 18 | FICHA DE INSCRIÇÃO <br> Nome: Pedro <br> Matrícula: 2418631 <br> Curso: Eng. Computação <br> Idade: 18 <br> e-mail: pedro@edu.unifor.br  |
 
+### Exercício 10
+Calcule e mostre a área e o perímetro de um círculo. Sabe-se que a área = Ⲡ * raio2 e o perímetro = 2 * Ⲡ * raio.
+
+#### Fluxograma
+
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{Digite o raio do círculo: }}
+B --> C[/raio, area, perimetro/]
+C --> D[perimetro = 2*3.14*raio]
+D --> E["area = 3.14*(raio**2)"]
+E --> F{{`Área = area`, area <br> `Perimetro = perimetro`, perimetro}}
+F --> G([FIM]) 
+
+```
+#### Pseudocódigo
+```
+ALGORITMO area_e_perimetro
+DECLARE raio, area, perimetro: float
+INICIO
+ESCREVA "Digite o raio do círculo: "
+LEIA raio
+perimetro <- 2*3.14*raio
+area = 3.14*(raio**2)
+ESCREVA "Área = area", area
+ESCREVA "Perimetro = perimetro", perimetro
+FIM
+```
+
+#### Teste
+| raio | area | perimetro | saída | 
+| -- | -- | -- | -- | 
+| 5.0 | 78.5 |31.4 | Área = 78.5 <br> Perimetro = 31.4   | 
+| 0.0 | 0.0 | 0.0 | Área = 0.0 <br> Perimetro = 0.0
+| 1.0 | 3.14 | 6.28 | Área = 3.14 <br> Perimetro = 6.28
+
+
+
 
 
 

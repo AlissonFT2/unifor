@@ -249,6 +249,42 @@ FIM
 | Pedro | 0 | 0 | 500.00 |O salario foi: 500.00 |
 | Enzo | 11 | 2000000.00 | 101050.00 | O salario foi: 101050.00|
 
+### Exercício 8
+Calcule a média de um aluno na disciplina de RLA. Para isso solicite o nome do aluno, a nota da prova e a nota qualitativa. Sabe-se que a nota da prova tem peso 2 e a nota qualitativa peso 1. Mostre a média como resultado.
+
+#### Fluxograma
+
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{Digite seu nome a nota da prova e a nota qualitativa: }} 
+B --> C[/nome, nota1, qualitativa, media/]
+C --> D["media = ((nota1*2)+(qualitativa*1)) / 3"]
+D --> F{{`A sua media foi: media`, media}}
+F --> G([FIM])
+
+```
+#### Pseudocódigo
+```
+ALGORITMO media_rla
+DECLARE nome: string, nota1, qualitativa, media: float
+INICIO
+ESCREVA "Digite seu nome a nota da prova e a nota qualitativa: "
+LEIA nome, nota1, qualitativa
+media <- ((nota1*2) + (qualitativa*1)) /3
+ESCREVA "A sua media foi: media", media
+FIM
+```
+
+#### Teste
+| nome | nota1 | qualitativa | media | saída |
+| -- | -- | -- | -- | -- |
+| Alisson | 9.0 | 5.0 | 7.6 | A sua media foi: 7.6 |
+| Pedro | 10.0 | 10.0 | 10.0 |A sua media foi: 10.0 |
+| Enzo | 3.5 | 7.8 | 4.9 | A sua media foi: 4.9|
+
+
+
+
 
 
 

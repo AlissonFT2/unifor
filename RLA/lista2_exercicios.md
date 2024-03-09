@@ -733,6 +733,50 @@ FIM
 | 5.5 | D |
 | 9.9 | A |
 
+### Exercício 19
+Leia um número e diga se é: nulo, positivo ou negativo.
+#### Fluxograma
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{Digite um número: }}
+B --> C[/num/]
+C --> D{num == 0}
+D --NAO--> E{num > 0}
+E --NAO--> F{{O seu número é negativo!}}
+D --SIM--> G{{o seu número é nulo!}}
+E --SIM--> H{{O seu número é positivo!}}
+F & G & H --> L([FIM])
+
+
+```
+#### Pseudocódigo
+```
+ALGORITMO nulo_pos_neg
+DECLARE num: float
+INICIO
+ESCREVA "Digite um número: "
+LEIA num
+SE num == 0 ENTAO
+	ESCREVA "O seu número é nulo!"
+SENAO SE num > 0 ENTAO 
+	ESCREVA "O seu número é positivo!"
+SENAO
+	ESCREVA "O seu número é negativo!"	
+FIM_SE
+FIM
+```
+
+#### Teste
+| num | num == 0 | num > 0 | saída
+| -- | -- | -- | -- |
+| 0 |  True |  | O seu número é nulo!
+| -1 | False | False | O seu número é negativo!
+| 1 | False | True | O seu número é positivo!
+
+
+
+
+
 
 
 

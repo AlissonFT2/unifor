@@ -773,6 +773,72 @@ FIM
 | -1 | False | False | O seu número é negativo!
 | 1 | False | True | O seu número é positivo!
 
+### Exercício 20
+Receba dois números reais e um operador (vide slide 9). e efetue a operação correspondente com os valores recebidos (operandos). O algoritmo deve retornar o resultado da operação selecionada simulando todas as opeações de uma calculadora simples.
+#### Fluxograma
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{"Digite a operação que deseja fazer [+][-][*][/]: <br> Digite os dois números que deseja operar: "}}
+B --> C[/operacao, n1, n2, calc/]
+C --> D{operacao == `+`}
+D --NAO--> E{operacao == `-`}
+E --NAO--> F{operacao == `*`}
+F --NAO--> G{operacao == `/`}
+G --NAO--> H{{Simbolo de operação invalido!}}
+D --SIM--> L[calc = n1 + n2]
+E --SIM--> M[calc = n1 - n2]
+F --SIM--> N[calc = n1 * n2]
+G --SIM--> O{n2 == 0}
+O --NAO--> P[calc = n1 / n2]
+O --SIM--> R{{Não se pode dividir por zero!}}
+L & M & N & P --> S{{calc}}
+S & R & H --> T([FIM])
+
+
+
+```
+#### Pseudocódigo
+```
+ALGORITMO calculador_simples
+DECLARE operacao: string, n1, n2, calc: float
+INICIO
+ESCREVA "Digite a operação que deseja fazer [+][-][*][/]: "
+ESCREVA "Digite os dois números que deseja operar: "
+LEIA operacao, n1, n2
+SE operacao == "+" ENTAO
+	calc <- n1 + n2
+SENAO SE operacao == "-" ENTAO
+	calc <- n1 - n2
+SENAO SE operacao == "*" ENTAO
+	calc <- n1 * n2
+SENAO SE operacao == "/" ENTAO
+	SE n2 == 0 ENTAO
+		ESCREVA "Não se pode dividir por zero!"
+	SENAO
+		calc <- n1 / n2
+	FIM_SE
+ESCREVA calc
+SENAO
+	ESCREVA "Simbolo de operação invalido!"
+FIM_SE
+
+FIM
+```
+
+#### Teste
+| operacao | n1 | n2 | saída
+| -- | -- | -- | -- |
+| / |  10 | 0 | Não se pode dividir por zero!
+| + | 5 | 3| 8
+| = | 5 | 6 | Simbolo de operação invalido!
+| * | 5 | 2 | 10 |
+| - | 5 | 10 | -5 |
+| - | 10 | 5 | 5 |
+
+
+
+
+
 
 
 

@@ -457,23 +457,57 @@ FIM
 | 9 | 5 | 9 | 5 / 9 / 9 | 
 | 15 | 11 | 10 | 10 / 11 / 15 | 
 
+### Exercício 13
+Elaborar um algoritmo que, dada a idade de um nadador, classificá-lo nas categorias: <br>a) infantil A (5 - 7 anos), <br>b) infantil, B (8 -10 anos), <br>c) juvenil A (11 - 13 anos), <br>d) juvenil B (14 -17 anos) e <br>e) adulto (maiores que 18 anos).
+#### Fluxograma
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{Digite sua idade: }}
+B --> C[/idade, categoria/]
+C --> D{idade >= 5 and idade <= 7}
+D --NAO--> E{idade >= 8 and idade <= 10}
+E --NAO--> F{idade >= 11 and idade <= 13}
+F --NAO--> G{idade >= 14 and idade <= 17}
+G --NAO--> H{idade >= 18}
+H --NAO--> L[categoria = `nao_existe`]
+D --SIM--> M[categoria = `infantil A`]
+E --SIM--> N[categoria = `infantil B`]
+F --SIM--> O[categoria = `juvenil A`]
+G --SIM--> P[categoria = `juvenil B`]
+H --SIM--> R[categoria = `adulto`]
+L & M & N & O & P & R --> S{{categoria}}
+S --> T([FIM])
+```
+#### Pseudocódigo
+```
+ALGORITMO categorias
+DECLARE idade: int, categoria: string
+INICIO
+ESCREVA "Digite sua idade: "
+LEIA idade
+SE idade >= 5 and idade <= 7 ENTAO
+	categoria <- `infantil A`
+SENAO SE idade >= 8 and idade <= 10 ENTAO
+	categoria <- `infantil B`
+SENAO SE idade >= 11 and idade <= 13 ENTAO
+	categoria <- `juvenil A` 
+SENAO SE idade >= 14 and idade <= 17 ENTAO
+	categoria <- `juvenil B`
+SENAO SE idade >= 18 ENTAO
+	categoria <- `adulto`
+SENAO
+	categoria <- `nao_existe`
+FIM_SE
+ESCREVA categoria
+FIM
+```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#### Teste
+| idade | categoria | saída | 
+| -- | -- | -- |
+| 3 | nao_existe |nao_existe |
+| 9 | infantil B | infantil B |
+| 23 | adulto | adulto | 
 
 
 

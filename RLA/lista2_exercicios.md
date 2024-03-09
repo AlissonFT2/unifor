@@ -626,6 +626,61 @@ FIM
 | 0.0 | False | True | RM | 
 | 5 | False | False | PF |
 
+### Exercício 17
+Suponha que saindo da UNIFOR seu primeiro salário será de R$ 5.000,00. O do seu colega que não fez UNIFOR é de R$ 2.500,00. Infelizmente, ambos precisam pagar impostos. Crie um algoritmo para calcular o salário líquido de vocês e de outras pessoas. <br> algoritmo para calcular o salário líquido de vocês e de outras pessoas.<br> Faixa Salarial Imposto Até 1.499,15 isento (não paga imposto) <br>1.499,16 ~ 2.246,75 7.5% <br>2.246,76 ~ 2.995, 70 15% <br>2.995,71 ~ 3.743,19 22,5% <br>A partir de 3.743,20 27,5%
+#### Fluxograma
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{Digite seu salário: }}
+B --> C[/salario, sal_liq/]
+C --> D{salario <= 1499.14}
+D --NAO--> E{salario >= 1499.16 and salario <= 2246.75}
+E --NAO--> F{salario >= 2246.76 and salario <= 2995.70}
+F --NAO--> G{salario >= 2995.71 and salario <= 3743.19}
+G --NAO--> H["sal_liq = salario - (56.06 + 112.34 + 168.18) - (salario - 3743.19) * 0.275"]
+D --SIM--> L["sal_liq = salario"]
+E --SIM--> M["sal_liq = salario - (salario - 1499.14) * 0.075"]
+F --SIM--> N["sal_liq = salario - (56.06 + (salario - 2246.75) * 0.15)"]
+G --SIM--> O["sal_liq = salario - (56.06 + 112.34 + (salario - 2995.70) * 0.225)"]
+L & M & N & O & H --> P{{`O seu salário liquido é: sal_liq`, sal_liq}}
+P --> Q([FIM])
+
+
+
+
+```
+#### Pseudocódigo
+```
+ALGORITMO salario_liquido
+DECLARE sal_liq, salario: float
+INICIO
+ESCREVA "Digite seu salário: "
+LEIA salario
+SE salario <= 1499.15 ENTAO
+	sal_liq <- salario
+SENAO SE salario >= 1499.16 and salario <= 2246.75 ENTAO
+	sal_liq <- salario - (salario - 1499.14) * 0.075
+SENAO SE salario >= 2246.76 and salario <= 2995.70 ENTAO
+	sal_liq <- salario - (56.06 + (salario - 2246.75) * 0.15
+SENAO SE salario >= 2995.71 and salario <= 3743.19 ENTAO
+	sal_liq <- salario - (56.06 + 112.34 + (salario - 2995.70) * 0.225)
+SENAO 
+	sal_liq <- salario - (56.06 + 112.34 + 168.18) - (salario - 3743.19) * 0.275
+FIM_SE
+ESCREVA "O seu salário liquido é: sal_liq", sal_liq
+FIM
+```
+
+#### Teste
+| salario | salario <= 1499.15 | salario >= 1499.16 <br>and <br>salario <= 2246.75 |salario >= 2246.76 <br>and <br>salario <= 2995.70 | salario >= 2995.71 <br>and <br>salario <= 3743.19 | sal_liq | saída |
+| -- | -- | -- | -- | -- | -- | -- |
+| 5000.00 |  False | False | False | False  | 4317.54| O seu salário liquido é: 4317.54|
+| 2500.00 | False | False | True | | 2405.95 | O seu salário liquido é: 2405.95
+
+
+
+
+
 
 
 

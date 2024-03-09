@@ -509,6 +509,48 @@ FIM
 | 9 | infantil B | infantil B |
 | 23 | adulto | adulto | 
 
+### Exercício 14
+Dado três inteiros crie um algoritmo para retornar o menor deles.
+#### Fluxograma
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{Digite tres números: }}
+B --> C[/n1, n2, n3/]
+C --> D{n1 <= n2 and n1 <= n3}
+D --NAO--> E{n2 <= n1 and n2 <= n3}
+E --NAO--> F{{n3}}
+D --SIM--> G{{n1}}
+E --SIM--> H{{n2}}
+F & G & H --> L([FIM])
+
+```
+#### Pseudocódigo
+```
+ALGORITMO categorias
+DECLARE n1, n2, n3: int
+INICIO
+ESCREVA "Digite tres números: "
+LEIA n1, n2, n3
+SE n1 <= n2 and n1 <= n3 ENTAO
+	ESCREVA n1
+SENAO SE n2 <= n1 and n2 <= n3 ENTAO
+	ESCREVA n2
+SENAO
+	ESCREVA n3
+FIM_SE
+FIM
+```
+
+#### Teste
+| n1 | n2 | n3 | n1 <= n2 <br>and <br>n1 <= n3 | n2 <= n1 <br>and<br> n2 <= n3 | saída |
+| -- | -- | -- | -- | -- | -- |
+| 1 |  2 | 3 | True |  | 1
+| 3 | 2 | 1 | False | False | 1
+| 2 | 1 | 3 | False | True | 1  
+
+
+
+
 
 
 

@@ -1,6 +1,6 @@
 # UNIFOR
 **Nome**: Alisson Frota Teixeira <br>
-**Disciplina**: Raciocínio lógico algorítmico
+**Disciplina**: Raciocínio Lógico Algorítmico
 
 ## Lista de exercícios 02
 

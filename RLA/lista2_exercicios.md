@@ -526,7 +526,7 @@ F & G & H --> L([FIM])
 ```
 #### Pseudocódigo
 ```
-ALGORITMO categorias
+ALGORITMO menor_num
 DECLARE n1, n2, n3: int
 INICIO
 ESCREVA "Digite tres números: "

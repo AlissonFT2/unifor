@@ -677,6 +677,66 @@ FIM
 | 5000.00 |  False | False | False | False  | 4317.54| O seu salário liquido é: 4317.54|
 | 2500.00 | False | False | True | | 2405.95 | O seu salário liquido é: 2405.95
 
+### Exercício 18
+Converta o critério de avaliação de alunos em escolas brasileiras para o critério utilizado em escolas americanas. Nas escolas brasileiras, a avaliação dos alunos é reportada por uma nota que varia de 0 a 10. Nas escolas americanas, a avaliação dos alunos é baseada em conceitos: A, B, C, D, ou F. <br>a) A (9.0 a 10.0);<br> b) B (8.0 a 8.9); <br>c) C (7.0 a 7.9);<br> d) D (5.0 a 6.9), e <br>e) F (menor que 5.0)
+#### Fluxograma
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{Digite sua nota: }}
+B --> C[/nota/]
+C --> D{nota < 5}
+D --NAO--> E{nota >= 5.0 and nota <= 6.9}
+E --NAO--> F{nota >= 7.0 and nota <= 7.9}
+F --NAO--> G{nota >= 8.0 and nota <= 8.9}
+G --NAO--> H{nota >= 9.0 and nota <= 10.0}
+H --NAO--> L{{nota invalida}}
+D --SIM--> M{{F}}
+E --SIM--> N{{D}}
+F --SIM--> O{{C}}
+G --SIM--> P{{B}}
+H --SIM--> R{{A}}
+L & M & N & O & P & R --> S([FIM])
+
+
+
+
+
+```
+#### Pseudocódigo
+```
+ALGORITMO avaliacao_alunos
+DECLARE nota: float
+INICIO
+ESCREVA "Digite sua nota: "
+LEIA nota
+SE nota < 5 ENTAO
+	ESCREVA "F"
+SENAO SE nota >= 5.0 and nota <= 6.9 ENTAO
+	ESCREVA "D"
+SENAO SE nota >= 7.0 and nota <= 7.9 ENTAO
+	ESCREVA "C"
+SENAO SE nota >= 8.0 and nota <= 8.9 ENTAO
+	ESCREVA "B"
+SENAO SE nota >= 9.0 and nota <= 10.0 ENTAO
+	ESCREVA "A"
+SENAO
+	ESCREVA "nota invalida"
+FIM_SE
+FIM
+```
+
+#### Teste
+| nota | saída | 
+| -- | -- | -- | 
+| 5 |  D | 
+| 8.9 | B | 
+| 5.5 | D
+| 9.9 | A
+
+
+
+
+
 
 
 

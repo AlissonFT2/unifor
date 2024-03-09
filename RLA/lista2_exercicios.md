@@ -586,6 +586,49 @@ FIM
 | 0 | True | 0.0 | O peso em kg é: 0.0 | 
 | -1 | False |  | O peso digitado não é positivo |
 
+### Exercício 16
+Leia uma média e exiba o status de um aluno:<br> a) AP se o aluno está aprovado (média final >= 6);<br> b) RM se o aluno está reprovado (média final < 3);<br> c) PF se o aluno está em prova fina (caso contrário).
+#### Fluxograma
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{Digite sua media: }}
+B --> C[/media/]
+C --> D{media >= 6}
+D --NAO--> E{media < 3}
+E --NAO--> F{{PF}}
+D --SIM--> G{{AP}}
+E --SIM--> H{{RM}}
+F & G & H --> L([FIM])
+
+
+
+```
+#### Pseudocódigo
+```
+ALGORITMO status_aluno
+DECLARE media: float
+INICIO
+ESCREVA "Digite sua media: "
+SE media >= 6 ENTAO
+	ESCREVA "AP"
+SENAO SE media < 3 ENTAO
+	ESCREVA "RM"
+SENAO
+	ESCREVA "PF"
+FIM_SE
+FIM
+```
+
+#### Teste
+| media | media >= 6 | media < 3 | saída | 
+| -- | -- | -- | -- | 
+| 10.0 |  True |  | AP | 
+| 0.0 | False | True | RM | 
+| 5 | False | False | PF |
+
+
+
+
 
 
 

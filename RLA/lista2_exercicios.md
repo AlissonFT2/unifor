@@ -548,6 +548,47 @@ FIM
 | 3 | 2 | 1 | False | False | 1
 | 2 | 1 | 3 | False | True | 1  
 
+### Exercício 15
+Faça um algoritmo para converter um peso expresso em libras para quilogramas (1Kg = 1Lb * 2.2). Uma vez que o peso não pode ser um número negativo, o nosso programa não deve aceitar um número negativo como um peso válido.
+#### Fluxograma
+```mermaid
+flowchart TD
+A([INICIO]) --> B{{Digite o peso em libras: }}
+B --> C[/p_lb, p_kg/]
+C --> D{p_lb >= 0}
+D --NAO--> E{{O peso digitado não é positivo!}}
+D --SIM--> F[p_kg = p_lb / 2.2]
+F --> G{{`O peso em kg é: p_kg`, p_kg}}
+E & G --> H([FIM])
+
+
+```
+#### Pseudocódigo
+```
+ALGORITMO lb_para_kg
+DECLARE p_lb, p_kg: float
+INICIO
+ESCREVA "Digite o peso em libras: "
+LEIA p_lb
+SE p_lb >= 0 ENTAO
+	p_kg <- p_lb / 2.2
+	ESCREVA "O peso em kg é: p_kg", p_kg
+SENAO
+	ESCREVA "O peso digitado não é positivo"
+FIM_SE
+FIM
+```
+
+#### Teste
+| p_lb | p_lb >= 0 | p_kg | saída | 
+| -- | -- | -- | -- | 
+| 10 |  True | 4.5 | O peso em kg é: 4.5 | 
+| 0 | True | 0.0 | O peso em kg é: 0.0 | 
+| -1 | False |  | O peso digitado não é positivo |
+
+
+
+
 
 
 

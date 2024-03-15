@@ -126,22 +126,65 @@ O algoritmo deve retornar o resultado da operação selecionada simulando todas 
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> B{{"Digite a operação que deseja fazer [+][-][*][/]: <br> Digite os dois números que deseja operar: "}}
+B --> C[/operacao, n1, n2, calc/]
+C --> D{operacao == `+`}
+D --NAO--> E{operacao == `-`}
+E --NAO--> F{operacao == `*`}
+F --NAO--> G{operacao == `/`}
+G --NAO--> H{{Simbolo de operação invalido!}}
+D --SIM--> L[calc = n1 + n2]
+E --SIM--> M[calc = n1 - n2]
+F --SIM--> N[calc = n1 * n2]
+G --SIM--> O{n2 == 0}
+O --NAO--> P[calc = n1 / n2]
+O --SIM--> R{{Não se pode dividir por zero!}}
+L & M & N & P --> S{{calc}}
+S & R & H --> T([FIM])
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
 ```
 Algoritmo Calculadora
+DECLARE operacao: char, n1, n2, calc: float
+INICIO
+ESCREVA "Digite a operação que deseja fazer [+][-][*][/]: "
+ESCREVA "Digite os dois números que deseja operar: "
+LEIA operacao, n1, n2
+ESCOLHA
+  CASO operacao == "+"
+    calc <- n1 + n2
+    ESCREVA calc
+  CASO operacao == "-"
+    calc <- n1 - n2
+    ESCREVA calc
+  CASO operacao == "*"
+    calc <- n1 * n2
+    ESCREVA calc
+  CASO operacao == "/"
+    SE n2 == 0 ENTAO
+      ESCREVA "Não se pode dividir por zero!"
+    SENAO
+      calc <- n1 / n2
+      ESCREVA calc
+    FIM_SE
+  SENAO
+    ESCREVA "Simbolo de operação invalido"
+FIM_ESCOLHA
 FIM_ALGORITMO
 ```
 
 #### Teste de mesa (0.5 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
-|      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+| operacao | n1 | n2 | saída
+| -- | -- | -- | -- |
+| / |  10 | 0 | Não se pode dividir por zero!
+| + | 5 | 3| 8
+| = | 5 | 6 | Simbolo de operação invalido!
+| * | 5 | 2 | 10 |
+| - | 5 | 10 | -5 |
+| - | 10 | 5 | 5 |
 
 ### Exercício 04 (2.5 pontos)
 Elaborar um algoritmo que, dada a idade, classifique nas categorias: infantil A (5 - 7 anos), infantil B (8 -10 anos), juvenil A (11 - 13 anos), juvenil B (14 -17 anos) e adulto (maiores que 18 anos).

@@ -171,22 +171,52 @@ Dado um número $n$, implemente e teste um algoritmo para calcular o fatorial de
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> Z[/fatorial, i/] 
+Z --> B{{Digite um número: }}
+B --> C[/num/]
+C --> D{num == 0 or num == 1}
+
+D --TRUE--> E[fatorial = 1]
+
+D --FALSE--> F[[i = 2 ATE num]]
+F --> G[fatorial =* i]
+G --LOOP--> F
+F & E --> H{{fatorial}}
+H --> Y([FIM])
+
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
 ```
 Algoritmo ContaAprovacoes
+DECLARE i, fatorial, num: INT
+INICIO
+fatorial <- 1
+ESCREVA "Digite um número: "
+LEIA num
+SE num == 0 or num == 1 ENTAO
+	fatorial <- 1
+SENAO
+	PARA i = 2 ATE num FAÇA
+		fatorial <- fatorial * i
+	FIM_PARA
+FIM_SE
+ESCREVA fatorial
 FIM_ALGORITMO
 ```
 
 #### Teste de mesa (0.5 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
-|      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+|  numero  |  fatorial  |  i  |
+| -- | -- | -- |
+| 6 | 1 | |
+|    6     |     2      |  2  |
+|    6     |     6      |  3  |
+|    6     |    24      |  4  |
+|    6     |   120      |  5  |
+|    6     |   720      |  6  |
+
 
 ### Questão 6 - Geração da sequência de Fibonacci (2 pontos)
 

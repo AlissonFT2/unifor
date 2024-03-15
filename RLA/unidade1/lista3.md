@@ -104,13 +104,17 @@ flowchart TD
 A([INICIO]) --> B[/resto/]
 B --> C{{Digite um número: }}
 C --> D[/n/]
+
 D --> E{n < 0}
-E --TRUE--> D
 E --FALSE--> F[resto = n % 2]
 F --> G{resto == 0}
 G --FALSE--> H{{O número é impar}}
 G --TRUE--> I{{O número é par}}
 H & I --> J([FIM])
+
+E --TRUE--> K{{O número não é poitivo, Digite outro: }}
+K --> L[/n/]
+L --LOOP--> E
 
 ```
 
@@ -122,6 +126,7 @@ DECLARE resto, n: INT
 ESCREVA "Digite um número"
 LEIA n
 ENQUANTO n < 0 FAÇA
+	ESCREVA "O número deve ser não negativo. Por favor, digite novamente: "
 	LEIA n
 FIM_ENQUANTO
 resto <- n % 2

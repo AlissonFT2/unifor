@@ -194,19 +194,53 @@ Elaborar um algoritmo que, dada a idade, classifique nas categorias: infantil A 
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> B{{Digite sua idade: }}
+B --> C[/idade, categoria/]
+C --> D{idade >= 5 and idade <= 7}
+D --NAO--> E{idade >= 8 and idade <= 10}
+E --NAO--> F{idade >= 11 and idade <= 13}
+F --NAO--> G{idade >= 14 and idade <= 17}
+G --NAO--> H{idade >= 18}
+H --NAO--> L[categoria = nao_existe]
+D --SIM--> M[categoria = infantil A]
+E --SIM--> N[categoria = infantil B]
+F --SIM--> O[categoria = juvenil A]
+G --SIM--> P[categoria = juvenil B]
+H --SIM--> R[categoria = adulto]
+L & M & N & O & P & R --> S{{categoria}}
+S --> T([FIM])
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
 ```
 Algoritmo ClassificaCategoria
+DECLARE idade: int, categoria: string
+INICIO
+ESCREVA "Digite sua idade: "
+LEIA idade
+ESCOLHA
+  CASO idade >= 5 and idade <= 7 
+    categoria <- infantil A
+  CASO idade >= 8 and idade <= 10
+    categoria <- infantil B
+  CASO idade >= 11 and idade <= 13
+    categoria <- juvenil A 
+  CASO idade >= 14 and idade <= 17
+    categoria <- juvenil B
+  CASO idade >= 18
+    categoria <- adulto
+SENAO
+    categoria <- nao_existe
+FIM_ESCOLHA
+ESCREVA categoria
 FIM_ALGORITMO
 ```
 
 #### Teste de mesa (0.5 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
-|      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+| idade | categoria | saída | 
+| -- | -- | -- |
+| 3 | nao_existe |nao_existe |
+| 9 | infantil B | infantil B |
+| 23 | adulto | adulto |

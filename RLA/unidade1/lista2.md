@@ -90,22 +90,33 @@ Leia uma temperatura dada em Celsius (C) e imprima o equivalente em Fahrenheit (
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> B{{Digite a temperatura em ºC: }}
+B --> D[/c, f/]
+D --> E["f = (9/5) * c + 32"]
+E --> F{{A temperatura em fahrenheit é: f,f}}
+F --> G([FIM])
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
 ```
 Algoritmo ConverteCelsiusFarenheit
+DECLARE c, f: float
+INICIO
+ESCREVA "Digite a temperatura em ºC: "
+LEIA c
+f <- (9/5) * c + 32
+ESCREVA "A temperatura em fahrenheit é: f", f
 FIM_ALGORITMO
 ```
 
 #### Teste de mesa (0.5 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
-|      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+| c | f | saída |
+| -- | -- | -- | 
+| 10.0 | 50.0 | A temperatura em fahrenheit é: 50.0 |
+| 0.0 | 32.0 | A temperatura em fahrenheit é: 32.0 |
+| 25.5 | 77.9 | A temperatura em fahrenheit é: 77.9 |
 
 ### Exercício 03 (2.5 pontos)
 Receba dois números reais e um operador e efetue a operação correspondente com os valores recebidos (operandos). 

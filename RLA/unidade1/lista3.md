@@ -195,22 +195,42 @@ Por exemplo, para a sequência {12, 17, 4, -6, 8, 0}, o seu programa deve escrev
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> Z[/soma/] 
+Z --> B{{Digite um número para adicionar a soma<br>caso o número seja igual a zero<br>a soma vai finalizar: }}
+B --> C[/n/]
+C --> D{n == 0}
+D --False--> E[soma =+ n]
+E --> F[/n/]
+F --LOOP--> D
+D --True--> G{{soma}}
+G --> H([FIM])
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
 ```
 Algoritmo ClassificaCategoria
+DECLARE soma, n: INT
+INICIO
+soma <- 0
+ESCREVA "Digite um número para adicionar a soma, quando o número for iqual a zero a soma vai finalizar: "
+REPITA
+	LEIA n
+	soma <- soma + n
+ATE_QUE n == 0
+ESCREVA soma
 FIM_ALGORITMO
 ```
 
 #### Teste de mesa (0.5 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
-|      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+| n | soma | n == 0 | 
+|      --      |      --      | -- | 
+| 5     | 5       | False
+| 3   | 8          | False
+| 3   | 11          | False
+| -4   | 7          | False
+| 0   | 7          | True
 
 ### Exercício 04 (2.5 pontos)
 Escreva um programa que leia a nota de diversos alunos, até que seja digitada uma nota negativa. 

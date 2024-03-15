@@ -218,6 +218,7 @@ REPITA
 	LEIA n
 	soma <- soma + n
 ATE_QUE n == 0
+FIM_LOOP
 ESCREVA soma
 FIM_ALGORITMO
 ```
@@ -241,19 +242,45 @@ Ex. Foram lidas 14 notas. A média aritmética é 6.75!
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> B[/media, quant, soma/]
+B --> C{{Digite a nota do aluno, quando a nota for negativa a media vai parar:}}
+C --> D[/nota/]
+D --> E{nota < 0}
+E --TRUE--> J[media = soma / quant]
+J --> K{{Foram lidas `quant` notas. A média aritmética é `media`}}
+K --> L([FIM])
+E --FALSE--> F[soma =+ nota]
+F --> G[quant =+ 1]
+G --> H{{Digite outra nota: }}
+H --> I[/nota/]
+I --LOOP--> E
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
 ```
 Algoritmo ClassificaCategoria
+DECLARE media, soma, nota: FLOAT, quant: INT
+INICIO
+soma <- 0
+quant <- 0
+ESCREVA "Digite a nota do aluno, quando a nota for negativa a media vai parar: "
+LEIA n
+ENQUANTO n >= 0 FAÇA
+	soma <- soma + n
+	quant <- quant + 1
+	ESCREVA "Digite outra nota: "
+	LEIA n
+FIM_LOOP
+media <- soma / quant
+ESCREVA "Foram lidas `quant` notas. A média aritmética é `media`", quant, 
 FIM_ALGORITMO
 ```
 
 #### Teste de mesa (0.5 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
+| n | soma | quant | n >= 0 | media | 
 |      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+| 7.0     | 7.0       | 1    |  True     |     |
+| 4.0     | 10.0       | 2    |  True     |     |
+| -2.0     |        |     |  False     | 5.0    |

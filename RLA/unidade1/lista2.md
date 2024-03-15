@@ -150,8 +150,9 @@ Algoritmo Calculadora
 DECLARE operacao: char, n1, n2, calc: float
 INICIO
 ESCREVA "Digite a operação que deseja fazer [+][-][*][/]: "
+LEIA operacao
 ESCREVA "Digite os dois números que deseja operar: "
-LEIA operacao, n1, n2
+LEIA n1, n2
 ESCOLHA
   CASO operacao == "+"
     calc <- n1 + n2

@@ -103,8 +103,8 @@ E --> F{{Digite a nota: }}
 F --> G[/nota/]
 G --> H{nota >= 50}
 H --TRUE--> I[cont =+ 1]
-H --FALSE--> E
-I --> E
+H --LOOP--> E
+I --LOOP--> E
 ```
 
 #### Pseudocódigo (0.5 ponto)
@@ -129,13 +129,13 @@ FIM_ALGORITMO
 
 #### Teste de mesa (0.25 ponto)
 
-| i    | cont | nota  |
-|  --  |  --  |   --  |
-| 1    | 1    | 70    |
-| 2    | 1    | 40    |
-| 3    | 2    | 60    |
-| 4    | 3    | 55    |
-| 5    | 3    | 30    |
+| i    | cont | nota  | n |
+|  --  |  --  |   --  | -- |
+| 1    | 1    | 70    | 5 |
+| 2    | 1    | 40    | 5 |
+| 3    | 2    | 60    | 5 |
+| 4    | 3    | 55    | 5 |
+| 5    | 3    | 30    | 5 |
 
 ### Questão 3 - Soma de um conjunto de números (1 ponto)
 

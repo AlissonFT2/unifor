@@ -93,22 +93,49 @@ Será considerado aprovado o aluno que tirar $nota$ 50 ou maior (no intervalo de
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> B[/cont, i/]
+B --> C{{Digite o número de notas e ser processado: }}
+C --> D[/n/]
+D --> E[[i=1 ATE n]]
+E --> J{{`O número total de aprovações é: cont`, cont}}
+J --> K([FIM])
+E --> F{{Digite a nota: }}
+F --> G[/nota/]
+G --> H{nota >= 50}
+H --TRUE--> I[cont =+ 1]
+H --FALSE--> E
+I --> E
 ```
 
 #### Pseudocódigo (0.5 ponto)
 
 ```
 Algoritmo ContaAprovacoes
+DECLARE i, cont, n: INT, nota: FLOAT
+INICIO
+cont <- 0
+ESCREVA "Digite o número de notas a ser processado: "
+LEIA n
+PARA i=1 ATE n FAÇA
+	ESCREVA "Digite a nota: "
+	LEIA nota
+	SE nota >= 50 ENTAO
+		cont <- cont + 1
+	FIM_SE
+FIM_PARA
+ESCREVA "O número total de aprovações é: cont", cont
 FIM_ALGORITMO
 ```
 
 #### Teste de mesa (0.25 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
-|      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+| i    | cont | nota  |
+|  --  |  --  |   --  |
+| 1    | 1    | 70    |
+| 2    | 1    | 40    |
+| 3    | 2    | 60    |
+| 4    | 3    | 55    |
+| 5    | 3    | 30    |
 
 ### Questão 3 - Soma de um conjunto de números (1 ponto)
 

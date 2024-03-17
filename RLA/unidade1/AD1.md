@@ -146,22 +146,57 @@ Aceite apenas $n$ maior ou igual a zero.
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> B[/soma, i/]
+B --> C{{Digite a quantidade de números que serão somados: }}
+C --> D[/n/]
+
+E --> I{{soma}}
+I --> Z([FIM])
+
+D --> E[[i=1 ATE n]]
+E --> F{{Digite o número a ser somado: }}
+F --> G[/num/]
+G --> K{num < 0}
+
+K --FALSE--> H[soma =+ num]
+K --TRUE--> M{{Número invalido digite outro:}}
+M --> N[/num/]
+N --LOOP--> K
+
+
+H --LOOP--> E
 ```
 
 #### Pseudocódigo (0.5 ponto)
 
 ```
 Algoritmo ContaAprovacoes
+DECLARE soma, i, n, num: INT
+INICIO
+soma <- 0
+ESCREVA "Digite a quantidade de números que serão somados: "
+LEIA n
+PARA i=1 ATE n FAÇA
+	ESCREVA "Digite o número a ser somado"
+	LEIA num
+	ENQUANTO num < 0 FAÇA
+		ESCREVA "Número invalido digite outro: "
+		LEIA num
+	FIM_ENQUANTO
+	soma <- soma + num
+FIM_PARA
+ESCREVA soma
 FIM_ALGORITMO
 ```
 
 #### Teste de mesa (0.25 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
-|      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+| n | i | num | soma |
+|      --      |      --      |      --      |      --      |  
+| 3     | 1       | -3    |  0     | 
+| 3   | 1          | 3        | 3 |
+| 3 | 2 | 5 | 8 |
+| 3 | 3 | 2 | 10|
 
 ### Questão 4 - Cálculo de uma série (1 ponto)
 

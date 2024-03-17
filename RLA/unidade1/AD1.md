@@ -382,19 +382,42 @@ Implemente e teste um algoritmo para inverter a ordem dos dígitos de um número
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> B[/invertido = 0, resto = 0/]
+B --> C{{Digite o número a ser invertido: }}
+C --> D[/num/]
+D --> E{num != 0}
+E --FALSE--> I{{invertido}}
+I --> Z([FIM])
+E --TRUE--> F[resto = num % 10]
+F --> G["invertido = (invertido * 10) + resto"]
+G --> H[num = num // 10]
+H --LOOP--> E
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
 ```
 Algoritmo ContaAprovacoes
+DECLARE invertido, resto, num: INT
+INICIO
+invertido <- 0
+resto <- 0
+ESCREVA "Digite o número a ser invertido: "
+LEIA num
+ENQUANTO num != 0 FAÇA
+	resto <- num % 10
+	invertido <- (invertido * 10) + resto
+	num <- num // 10
+FIM_ENQUANTO
+ESCREVA invertido
 FIM_ALGORITMO
 ```
 
 #### Teste de mesa (0.5 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
-|      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+| num    | resto | invertido | 
+|      --      |      --      |      --      |  
+| 354     | 4         | 4     | 
+| 35    | 5          | 45        |
+| 3     | 3          | 453        |
+

@@ -314,21 +314,65 @@ Cada termo, além dos dois primeiros, é derivado da soma dos seus dois antecess
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> B[/fib0 = 0, fib1 = 1, fibnext/]
+B --> C{{Digite quantos termos da sequencia: }}
+C --> D[/n/]
+D --> E{n >= 1}
+E --TRUE--> H{n == 1}
+H --FALSE--> I{n == 2}
+I --FALSE--> J{{fib0}}
+J --> K{{fib1}}
+K --> L[[i=0 ATE n]]
+L --> M[fibnext = fib0 + fib1]
+M --> N{{fibnext}}
+N --> O[fib0 = fib1]
+O --> P[fib1 = fibnext]
+P --LOOP--> L
+H --TRUE--> Q{{fib0}}
+I --TRUE--> R{{fib1}}
+E --FALSE--> F{{Número de termos invalido, digite outro: }}
+F --> G[/n/]
+G --LOOP--> E
+Q & R & L --> Z([FIM])
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
 ```
 Algoritmo ContaAprovacoes
+DECLARE fib0, fib1, i, fibnext, n: INT
+INICIO
+fib0 <- 0
+fib1 <- 1
+ESCREVA "Digite quantos termos da sequencia: "
+LEIA n
+ENQUANTO n < 1 FAÇA
+	ESCREVA "Número de termos invalido, digite outro: "
+	LEIA n
+FIM_ENQUANTO
+SE n == 1 ENTAO
+	ESCREVA fib0
+SENAO SE n == 2
+	ESCREVA fib1
+SENAO
+	ESCREVA fib0
+	ESCREVA fib1
+	PARA i=2 ATE n FAÇA
+		fibnext <- fib0 + fib1
+		ESCREVA fibnext
+		fib0 = fib1
+		fib1 = fibnext
+	FIM_PARA
+FIM_SE
 FIM_ALGORITMO
 ```
 #### Teste de mesa (0.5 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
+| n	| i | fibnext | fib0 | fib1 | 
 |      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+| 4     |        |     |  0     | 1    |
+| 4   | 2          | 1        | 1 | 1  |
+| 4   | 3          | 2        | 1 | 2  |
 
 ### Questão 7 - Inversão dos dígitos de um número inteiro (2 pontos)
 

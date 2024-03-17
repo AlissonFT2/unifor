@@ -96,7 +96,7 @@ flowchart TD
 A([INICIO]) --> B[/cont, i/]
 B --> C{{Digite o número de notas e ser processado: }}
 C --> D[/n/]
-D --> E[[i=1 ATE n]]
+D --> E[[i=0 ATE n]]
 E --> J{{`O número total de aprovações é: cont`, cont}}
 J --> K([FIM])
 E --> F{{Digite a nota: }}
@@ -116,7 +116,7 @@ INICIO
 cont <- 0
 ESCREVA "Digite o número de notas a ser processado: "
 LEIA n
-PARA i=1 ATE n FAÇA
+PARA i=0 ATE n FAÇA
 	ESCREVA "Digite a nota: "
 	LEIA nota
 	SE nota >= 50 ENTAO
@@ -131,11 +131,11 @@ FIM_ALGORITMO
 
 | i    | cont | nota  | n |
 |  --  |  --  |   --  | -- |
-| 1    | 1    | 70    | 5 |
-| 2    | 1    | 40    | 5 |
-| 3    | 2    | 60    | 5 |
-| 4    | 3    | 55    | 5 |
-| 5    | 3    | 30    | 5 |
+| 0    | 1    | 70    | 5 |
+| 1    | 1    | 40    | 5 |
+| 2    | 2    | 60    | 5 |
+| 3    | 3    | 55    | 5 |
+| 4    | 3    | 30    | 5 |
 
 ### Questão 3 - Soma de um conjunto de números (1 ponto)
 
@@ -153,7 +153,7 @@ C --> D[/n/]
 E --> I{{soma}}
 I --> Z([FIM])
 
-D --> E[[i=1 ATE n]]
+D --> E[[i=0 ATE n]]
 E --> F{{Digite o número a ser somado: }}
 F --> G[/num/]
 G --> K{num < 0}
@@ -176,7 +176,7 @@ INICIO
 soma <- 0
 ESCREVA "Digite a quantidade de números que serão somados: "
 LEIA n
-PARA i=1 ATE n FAÇA
+PARA i=0 ATE n FAÇA
 	ESCREVA "Digite o número a ser somado"
 	LEIA num
 	ENQUANTO num < 0 FAÇA
@@ -193,10 +193,10 @@ FIM_ALGORITMO
 
 | n | i | num | soma |
 |      --      |      --      |      --      |      --      |  
-| 3     | 1       | -3    |  0     | 
-| 3   | 1          | 3        | 3 |
-| 3 | 2 | 5 | 8 |
-| 3 | 3 | 2 | 10|
+| 3     | 0       | -3    |  0     | 
+| 3   | 0          | 3        | 3 |
+| 3 | 1 | 5 | 8 |
+| 3 | 2 | 2 | 10|
 
 ### Questão 4 - Cálculo de uma série (1 ponto)
 
@@ -211,7 +211,7 @@ flowchart TD
 A([INICIO]) --> Z[/numerador = 1, denominador = 2, s/]
 Z --> B{{Digite quantos termos somar: }}
 B --> C[/n/]
-C --> D[[i=0 ATE n-1]]
+C --> D[[i=0 ATE n]]
 D --> H{{s}}
 H --> J([FIM])
 D --> E["s =+ (numerador/denominador)"]
@@ -232,7 +232,7 @@ denominador <- 2
 s <- 0
 ESCREVA "Digite quantos termos somar: "
 LEIA n
-PARA i=0 ATE n-1 FAÇA
+PARA i=0 ATE n FAÇA
 	s <- s + (numerador/denominador)
 	numerador <- numerador + 2
 	denominador <- denominador + 2
@@ -264,7 +264,7 @@ C --> D{num == 0 or num == 1}
 
 D --TRUE--> E[fatorial = 1]
 
-D --FALSE--> F[[i = 2 ATE num]]
+D --FALSE--> F[[i = 2 ATE num+1]]
 F --> G[fatorial =* i]
 G --LOOP--> F
 F & E --> H{{fatorial}}
@@ -284,7 +284,7 @@ LEIA num
 SE num == 0 or num == 1 ENTAO
 	fatorial <- 1
 SENAO
-	PARA i = 2 ATE num FAÇA
+	PARA i = 2 ATE num+1 FAÇA
 		fatorial <- fatorial * i
 	FIM_PARA
 FIM_SE

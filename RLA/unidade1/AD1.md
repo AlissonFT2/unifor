@@ -208,22 +208,46 @@ $$ S = \frac{1}{2} + \frac{3}{4} + \frac{5}{6} + \frac{7}{8} + \dots $$
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> Z[/numerador = 1, denominador = 2, s/]
+Z --> B{{Digite quantos termos somar: }}
+B --> C[/n/]
+C --> D[[i=0 ATE n-1]]
+D --> H{{s}}
+H --> J([FIM])
+D --> E["s =+ (numerador/denominador)"]
+E --> F[numerador =+ 2]
+F --> G[denominador =+ 2]
+
+G --LOOP--> D
 ```
 
 #### Pseudocódigo (0.5 ponto)
 
 ```
 Algoritmo ContaAprovacoes
+DECLARE numerador, denominador, n, i: INT, s: FLOAT
+INICIO
+numerador <- 1
+denominador <- 2
+s <- 0
+ESCREVA "Digite quantos termos somar: "
+LEIA n
+PARA i=0 ATE n-1 FAÇA
+	s <- s + (numerador/denominador)
+	numerador <- numerador + 2
+	denominador <- denominador + 2
+FIM_PARA
+ESCREVA s
 FIM_ALGORITMO
 ```
 
 #### Teste de mesa (0.25 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
+| n | i | numerador | denominador | s | 
 |      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+| 3     | 0       | 1    |  2     | 0.5    |
+| 3   | 1          | 3        | 4 | 1.25  |
+| 3   | 2          | 5       | 6 | 2.08  |
 
 ### Questão 5 - Cálculo fatorial (2 pontos)
 

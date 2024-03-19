@@ -52,7 +52,7 @@ flowchart TD
 A([INICIO]) --> B{{Digite a: <br> Digite b: }}
 B --> C[/a, b, temp/]
 C --> J{{a, b}}
-J --> D[a = temp]
+J --> D[temp = a]
 D --> E[a = b]
 E --> F[b = temp]
 F --> G{{a, b}}

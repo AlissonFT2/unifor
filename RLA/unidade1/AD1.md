@@ -96,12 +96,12 @@ flowchart TD
 A([INICIO]) --> B[/cont, i/]
 B --> C{{Digite o número de notas e ser processado: }}
 C --> D[/n/]
-D --> E[[i=0 ATE n]]
+D --> E[[i=1 ATE n]]
 E --> J{{`O número total de aprovações é: cont`, cont}}
 J --> K([FIM])
 E --> F{{Digite a nota: }}
 F --> G[/nota/]
-G --> H{nota >= 50}
+G --> H{nota >= 50 and nota <= 100}
 H --TRUE--> I[cont =+ 1]
 H --LOOP--> E
 I --LOOP--> E
@@ -116,10 +116,10 @@ INICIO
 cont <- 0
 ESCREVA "Digite o número de notas a ser processado: "
 LEIA n
-PARA i=0 ATE n FAÇA
+PARA i=1 ATE n FAÇA
 	ESCREVA "Digite a nota: "
 	LEIA nota
-	SE nota >= 50 ENTAO
+	SE nota >= 50 and nota <= 100 ENTAO
 		cont <- cont + 1
 	FIM_SE
 FIM_PARA
@@ -131,11 +131,11 @@ FIM_ALGORITMO
 
 | i    | cont | nota  | n |
 |  --  |  --  |   --  | -- |
-| 0    | 1    | 70    | 5 |
-| 1    | 1    | 40    | 5 |
-| 2    | 2    | 60    | 5 |
-| 3    | 3    | 55    | 5 |
-| 4    | 3    | 30    | 5 |
+| 1    | 1    | 70    | 5 |
+| 2    | 1    | 40    | 5 |
+| 3    | 2    | 60    | 5 |
+| 4    | 3    | 55    | 5 |
+| 5    | 3    | 30    | 5 |
 
 ### Questão 3 - Soma de um conjunto de números (1 ponto)
 

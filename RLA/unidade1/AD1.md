@@ -146,46 +146,43 @@ Aceite apenas $n$ maior ou igual a zero.
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B[/soma, i/]
-B --> C{{Digite a quantidade de números que serão somados: }}
-C --> D[/n/]
-
-E --> I{{soma}}
-I --> Z([FIM])
-
-D --> E[[i=0 ATE n]]
-E --> F{{Digite o número a ser somado: }}
-F --> G[/num/]
-G --> K{num < 0}
-
-K --FALSE--> H[soma =+ num]
-K --TRUE--> M{{Número invalido digite outro:}}
-M --> N[/num/]
-N --LOOP--> K
-
-
-H --LOOP--> E
+A([INICIO]) --> B{{"Digite a quantidade de números que serão somados: "}}
+B --> C[\n\]
+C --> D{n >= 0}
+D --FALSE-->N{{"O número deve ser >=0"}}
+N --> M([FIM])
+D --TRUE--> E[/soma = 0/]
+E --> F[/i = 1/]
+F --> G{i <= n}
+G --FALSE--> L{{soma}}
+L --> M
+G --TRUE--> H{{Digite um número: }}
+H --> I[\num\]
+I --> J[soma =+ num]
+J --> K[i =+ 1]
+K --LOOP--> G
 ```
 
 #### Pseudocódigo (0.5 ponto)
 
 ```
 Algoritmo ContaAprovacoes
-DECLARE soma, i, n, num: INT
+DECLARE soma, i, num: INT
 INICIO
-soma <- 0
 ESCREVA "Digite a quantidade de números que serão somados: "
 LEIA n
-PARA i=0 ATE n FAÇA
-	ESCREVA "Digite o número a ser somado"
-	LEIA num
-	ENQUANTO num < 0 FAÇA
-		ESCREVA "Número invalido digite outro: "
+SE n >= 0 ENTAO
+	soma <- 0
+	i <- 1
+	ENQUANTO i <= n FAÇA
+		ESCREVA "Digite um número: "
 		LEIA num
+		soma <- soma + num
 	FIM_ENQUANTO
-	soma <- soma + num
-FIM_PARA
-ESCREVA soma
+	ESCREVA soma
+SENAO
+	ESCREVA "O número deve ser >=0"
+FIM_SE
 FIM_ALGORITMO
 ```
 
@@ -193,10 +190,10 @@ FIM_ALGORITMO
 
 | n | i | num | soma |
 |      --      |      --      |      --      |      --      |  
-| 3     | 0       | -3    |  0     | 
-| 3   | 0          | 3        | 3 |
-| 3 | 1 | 5 | 8 |
-| 3 | 2 | 2 | 10|
+| 3     | 1       | -3    |  -3     | 
+| 3   | 1          | 3        | 0 |
+| 3 | 2 | 5 | 5 |
+| 3 | 3 | 2 | 7|
 
 ### Questão 4 - Cálculo de uma série (1 ponto)
 

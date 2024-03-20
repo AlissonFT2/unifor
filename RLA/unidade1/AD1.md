@@ -311,65 +311,43 @@ Cada termo, além dos dois primeiros, é derivado da soma dos seus dois antecess
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B[/fib0 = 0, fib1 = 1, fibnext/]
-B --> C{{Digite quantos termos da sequencia: }}
-C --> D[/n/]
-D --> E{n >= 1}
-E --TRUE--> H{n == 1}
-H --FALSE--> I{n == 2}
-I --FALSE--> J{{fib0}}
-J --> K{{fib1}}
-K --> L[[i=0 ATE n]]
-L --> M[fibnext = fib0 + fib1]
-M --> N{{fibnext}}
-N --> O[fib0 = fib1]
-O --> P[fib1 = fibnext]
-P --LOOP--> L
-H --TRUE--> Q{{fib0}}
-I --TRUE--> R{{fib1}}
-E --FALSE--> F{{Número de termos invalido, digite outro: }}
-F --> G[/n/]
-G --LOOP--> E
-Q & R & L --> Z([FIM])
+A([INICIO]) --> B{{Quantos termos: }}
+B --> K[/n/]
+K --> C[/fib0 = 0/]
+C --> D[/fib1 = 1/]
+D --> Z[/fibnext/]
+Z --> E[[i=1 ATÉ n PASSO 1]]
+E --> J([FIM])
+E --> F{{fib0}}
+F --> G[fibnext = fib0 + fib1]
+G --> H[fib0 = fib1]
+H --> I[fib1 = fibnext]
+I --LOOP--> E 
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
 ```
 Algoritmo ContaAprovacoes
-DECLARE fib0, fib1, i, fibnext, n: INT
+DECLARE fib0, fib1, fibnext, i, n: INT
 INICIO
-fib0 <- 0
-fib1 <- 1
-ESCREVA "Digite quantos termos da sequencia: "
+ESCREVA "Quantos termos: "
 LEIA n
-ENQUANTO n < 1 FAÇA
-	ESCREVA "Número de termos invalido, digite outro: "
-	LEIA n
-FIM_ENQUANTO
-SE n == 1 ENTAO
+PARA i=1 ATE n FAÇA
 	ESCREVA fib0
-SENAO SE n == 2
-	ESCREVA fib1
-SENAO
-	ESCREVA fib0
-	ESCREVA fib1
-	PARA i=2 ATE n FAÇA
-		fibnext <- fib0 + fib1
-		ESCREVA fibnext
-		fib0 = fib1
-		fib1 = fibnext
-	FIM_PARA
-FIM_SE
+	fibnext <- fib0 + fib1
+	fib0 <- fib1
+	fib1 <- fibnext
+FIM_PARA
 FIM_ALGORITMO
 ```
 #### Teste de mesa (0.5 ponto)
 
 | n	| i | fibnext | fib0 | fib1 | 
 |      --      |      --      |      --      |      --      |      --      | 
-| 4     |        |     |  0     | 1    |
-| 4   | 2          | 1        | 1 | 1  |
-| 4   | 3          | 2        | 1 | 2  |
+| 3     |  1      |     |  0     | 1    |
+| 3   | 2          | 1        | 1 | 1  |
+| 3   | 3          | 2        | 1 | 2  |
 
 ### Questão 7 - Inversão dos dígitos de um número inteiro (2 pontos)
 

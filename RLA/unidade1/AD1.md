@@ -254,19 +254,17 @@ Dado um número $n$, implemente e teste um algoritmo para calcular o fatorial de
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> Z[/fatorial, i/] 
-Z --> B{{Digite um número: }}
+A([INICIO]) --> B{{Digite um numero: }}
 B --> C[/num/]
-C --> D{num == 0 or num == 1}
-
+C --> D{num >= 0}
 D --TRUE--> E[fatorial = 1]
-
-D --FALSE--> F[[i = 2 ATE num+1]]
+D --FALSE--> J{{O valor deve ser positivo}}
+J --> I([FIM])
+E --> F[[i=1 ATE num PASSO 1]]
+F --> H{{fatorial}}
 F --> G[fatorial =* i]
 G --LOOP--> F
-F & E --> H{{fatorial}}
-H --> Y([FIM])
-
+H --> I
 ```
 
 #### Pseudocódigo (1.0 ponto)
@@ -275,17 +273,17 @@ H --> Y([FIM])
 Algoritmo ContaAprovacoes
 DECLARE i, fatorial, num: INT
 INICIO
-fatorial <- 1
-ESCREVA "Digite um número: "
+ESCREVA "Digite um número"
 LEIA num
-SE num == 0 or num == 1 ENTAO
+SE num >= 0
 	fatorial <- 1
-SENAO
-	PARA i = 2 ATE num+1 FAÇA
+	PARA i=1 ATE n FAÇA
 		fatorial <- fatorial * i
 	FIM_PARA
+	ESCREVA fatorial
+SENAO
+ESCREVA "O valor deve ser positivo"
 FIM_SE
-ESCREVA fatorial
 FIM_ALGORITMO
 ```
 

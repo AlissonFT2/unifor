@@ -379,12 +379,15 @@ invertido <- 0
 resto <- 0
 ESCREVA "Digite o número a ser invertido: "
 LEIA num
-ENQUANTO num != 0 FAÇA
-	resto <- num % 10
-	invertido <- (invertido * 10) + resto
-	num <- num // 10
-FIM_ENQUANTO
-ESCREVA invertido
+SE num >= 0 ENTAO
+	ENQUANTO num != 0 FAÇA
+		resto <- num % 10
+		invertido <- (invertido * 10) + resto
+		num <- num // 10
+	FIM_ENQUANTO
+	ESCREVA invertido
+SENAO
+ESCREVA "O número não e positivo"
 FIM_ALGORITMO
 ```
 

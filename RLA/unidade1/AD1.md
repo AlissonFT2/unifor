@@ -49,14 +49,15 @@ Dadas duas variáveis, $a$ e $b$, implemente e teste um algoritmo para trocar os
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B{{Digite a: <br> Digite b: }}
-B --> C[/a, b, temp/]
-C --> J{{a, b}}
-J --> D[temp = a]
-D --> E[a = b]
-E --> F[b = temp]
-F --> G{{a, b}}
-G --> K([FIM])
+A([INICIO]) --> B{{Digite o valor da a: }}
+B --> C[\a\]
+C --> D{{Digite o valor da b: }}
+D --> E[\b\]
+E --> F[aux = a]
+F --> G[a = b]
+G --> H[b = aux]
+H --> I{{"a =", a}}
+I --> J{{"b =", b}}
 ```
 
 #### Pseudocódigo (0.5 ponto)
@@ -79,10 +80,9 @@ FIM_ALGORITMO
 
 #### Teste de mesa (0.25 ponto)
 
-| a | b | saída1 | temp | saída2 | 
-|      --      |      --      |      --      |      --      |      --      | 
-| 3     | 4       | 3, 4    |  3     | 4, 3    |   
-| -2     | 6       | -2, 6    |  -2     | 6, -2    | 
+| a  | b  | aux | a  | b  | saída 1 | saída 2 | 
+| -- | -- | --  | -- | -- | --      | --      | 
+| 0  | 1  | 0   | 1  | 0  | a = 1   | b = 0   |
 
 ### Questão 2 - Contagem (1 ponto)
 
@@ -93,18 +93,18 @@ Será considerado aprovado o aluno que tirar $nota$ 50 ou maior (no intervalo de
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B[/cont, i/]
-B --> C{{Digite o número de notas e ser processado: }}
-C --> D[/n/]
-D --> E[[i=1 ATE n]]
-E --> J{{`O número total de aprovações é: cont`, cont}}
-J --> K([FIM])
-E --> F{{Digite a nota: }}
-F --> G[/nota/]
-G --> H{nota >= 50 and nota <= 100}
-H --TRUE--> I[cont =+ 1]
-H --LOOP--> E
-I --LOOP--> E
+A([INICIO]) --> B{{Digite o número de notas: }}
+B --> C[\n\]
+C --> D[\cont = 0\]
+D --> E[[i=1 ATE n PASSO 1]]
+E --"i=1,2...,n"--> F{{Digite nota, i}}
+E --"i > n"--> K{{Número de alunos aprovados: , cont}}
+K --> L([FIM])
+F --> G[\nota\]
+G --> H{"nota >= 50 <br>E <br>nota <=100"}
+H --FALSE/LOOP--> E
+H --TRUE--> J[\cont =+ 1\]
+J --LOOP--> E
 ```
 
 #### Pseudocódigo (0.5 ponto)
@@ -129,13 +129,11 @@ FIM_ALGORITMO
 
 #### Teste de mesa (0.25 ponto)
 
-| i    | cont | nota  | n |
-|  --  |  --  |   --  | -- |
-| 1    | 1    | 70    | 5 |
-| 2    | 1    | 40    | 5 |
-| 3    | 2    | 60    | 5 |
-| 4    | 3    | 55    | 5 |
-| 5    | 3    | 30    | 5 |
+| it | n  | cont | i  | nota, i | nota | nota_valida | cont+1 | saída        | 
+| -- | -- | --   | -- | --      | --   | --          | --     | --           |
+| 1  | 3  | 0    | 1  | nota 1  | 60   | True        | 1      |              |
+| 2  | 3  | 1    | 2  | nota 2  | 40   | False       | 1      |              |
+| 3  | 3  | 1    | 3  | nota 3  | 90   | True        | 2      | Aprovados: 2 |
 
 ### Questão 3 - Soma de um conjunto de números (1 ponto)
 
@@ -146,15 +144,15 @@ Aceite apenas $n$ maior ou igual a zero.
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B{{"Digite a quantidade de números que serão somados: "}}
+A([INICIO]) --> B{{"Digite a quantidade de números<br> (n >= 0):"}}
 B --> C[\n\]
 C --> D{n >= 0}
-D --FALSE-->N{{"O número deve ser >=0"}}
+D --FALSE-->N{{"O valor deve ser maior ou igual a zero!"}}
 N --> M([FIM])
 D --TRUE--> E[/soma = 0/]
-E --> F[/i = 1/]
+E --> F[i = 1]
 F --> G{i <= n}
-G --FALSE--> L{{soma}}
+G --FALSE--> L{{"A soma dos numeros é , soma"}}
 L --> M
 G --TRUE--> H{{Digite um número: }}
 H --> I[\num\]
@@ -188,12 +186,14 @@ FIM_ALGORITMO
 
 #### Teste de mesa (0.25 ponto)
 
-| n | i | num | soma |
-|      --      |      --      |      --      |      --      |  
-| 3     | 1       | -3    |  -3     | 
-| 3   | 1          | 3        | 0 |
-| 3 | 2 | 5 | 5 |
-| 3 | 3 | 2 | 7|
+| it | n  | n >= 0 | soma | i  | i <= n | num | soma =+ num  | saída                   |
+| -- | -- | --     | --   | -- | --     | --  | --           | --                      |
+|    | -3 | False  |      |    |        |     |              | O valor deve ser ...    |
+| 1  | 0  | True   | 0    | 1  | False  |     |              | A soma dos números é 0  |
+| 1  | 3  | True   | 0    | 1  | True   | 5   | 0 + 5 = 5    |                         |
+| 2  | 3  | True   | 5    | 2  | True   | 10  | 5 + 10 = 15  |                         |
+| 3  | 3  | True   | 15   | 3  | True   | 20  | 15 + 20 = 35 |                         |
+| 4  | 3  | True   | 35   | 4  | False  |     |              | A soma dos números é 35 |
 
 ### Questão 4 - Cálculo de uma série (1 ponto)
 
@@ -205,17 +205,17 @@ $$ S = \frac{1}{2} + \frac{3}{4} + \frac{5}{6} + \frac{7}{8} + \dots $$
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> Z[/numerador = 1, denominador = 2, s/]
-Z --> B{{Digite quantos termos somar: }}
+A([INICIO]) --> B{{Digite o número de termos da série S: }}
 B --> C[/n/]
-C --> D[[i=0 ATE n]]
-D --> H{{s}}
-H --> J([FIM])
-D --> E["s =+ (numerador/denominador)"]
-E --> F[numerador =+ 2]
-F --> G[denominador =+ 2]
-
-G --LOOP--> D
+C --> D[S = 0]
+D --> E[[i=0 ATE n PASSO 1]]
+E --i > n--> J{{"Soma da série S é ", S}}
+J --> K([FIM])
+E --"i=0,1,2,..,n"--> F[numerador = 2 * i + 1]
+F --> G[denominador = 2 * i + 2]
+G --> H[termo = numerador / denominador]
+H --> I[S += termo]
+I --LOOP--> E
 ```
 
 #### Pseudocódigo (0.5 ponto)
@@ -240,11 +240,13 @@ FIM_ALGORITMO
 
 #### Teste de mesa (0.25 ponto)
 
-| n | i | numerador | denominador | s | 
-|      --      |      --      |      --      |      --      |      --      | 
-| 3     | 0       | 1    |  2     | 0.5    |
-| 3   | 1          | 3        | 4 | 1.25  |
-| 3   | 2          | 5       | 6 | 2.08  |
+| it | n  | S  | i | numerador | denominador | termo | S += termo     | saída                  |
+| -- | -- | -- |-- | --        | --          | --    | --             | --                     |
+|    | 0  | 0  |   |           |             |       |                |                        |
+| 1  | 4  | 0  | 0 | 2*0+1 = 1 | 2*0+2 = 2   | 1/2   | 0+1/2 = 1/2    |                        |
+| 2  | 4  | 0  | 1 | 2*1+1 = 1 | 2*1+2 = 2   | 3/4   | 1/2+3/4 = 1.25 |                        |
+| 3  | 4  | 0  | 2 | 2*2+1 = 1 | 2*2+2 = 2   | 5/6   | 0+1/2 = 2.08   |                        |
+| 4  | 4  | 0  | 3 | 2*3+1 = 1 | 2*3+2 = 2   | 7/8   | 0+1/2 = 2.96   | Soma da série S é 2.96 |
 
 ### Questão 5 - Cálculo fatorial (2 pontos)
 
@@ -254,15 +256,15 @@ Dado um número $n$, implemente e teste um algoritmo para calcular o fatorial de
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B{{Digite um numero: }}
-B --> C[/num/]
-C --> D{num >= 0}
-D --TRUE--> E[fatorial = 1]
-D --FALSE--> J{{O valor deve ser positivo}}
+A([INICIO]) --> B{{"Digite um numero inteiro nao-negativo:"}}
+B --> C[/n/]
+C --> D{n >= 0}
+D --TRUE--> E[fator = 1]
+D --FALSE--> J{{O valor deve ser maior ou igual a zero!}}
 J --> I([FIM])
-E --> F[[i=1 ATE num PASSO 1]]
-F --> H{{fatorial}}
-F --> G[fatorial =* i]
+E --> F[[i=1 ATÉ n PASSO 1]]
+F --"i > n"--> H{{O fatorial de, n, é:, fator}}
+F --"i=1,2,..n"--> G[fator = fator * i]
 G --LOOP--> F
 H --> I
 ```
@@ -289,14 +291,11 @@ FIM_ALGORITMO
 
 #### Teste de mesa (0.5 ponto)
 
-|  numero  |  fatorial  |  i  |
-| -- | -- | -- |
-| 6 | 1 | |
-|    6     |     2      |  2  |
-|    6     |     6      |  3  |
-|    6     |    24      |  4  |
-|    6     |   120      |  5  |
-|    6     |   720      |  6  |
+| n  | fator | i  | fator = fator * i | saída               |
+| -- | --    | -- | --                | --                  |
+| 3  | 1     | 1  | 1*1 = 1           |                     |
+| 3  | 1     | 2  | 1*2 = 2           |                     |
+| 3  | 2     | 3  | 2*3 = 6           | O fatorial de 3 é 6 |
 
 
 ### Questão 6 - Geração da sequência de Fibonacci (2 pontos)
@@ -309,17 +308,15 @@ Cada termo, além dos dois primeiros, é derivado da soma dos seus dois antecess
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B{{Quantos termos: }}
-B --> K[/n/]
-K --> C[/fib0 = 0/]
-C --> D[/fib1 = 1/]
-D --> Z[/fibnext/]
-Z --> E[[i=1 ATÉ n PASSO 1]]
-E --> J([FIM])
-E --> F{{fib0}}
-F --> G[fibnext = fib0 + fib1]
-G --> H[fib0 = fib1]
-H --> I[fib1 = fibnext]
+A([INICIO]) --> B{{"Número de termos da série Fibonacci:"}}
+B --> C[a = 0]
+C --> D[b = 1]
+D --> E[[i=1 ATÉ n PASSO 1]]
+E --"i > n"--> J([FIM])
+E --"i=1,2,...,n"--> F{{a}}
+F --> G[termo_atual = a + b]
+G --> H[a = b]
+H --> I[b = termo_atual]
 I --LOOP--> E 
 ```
 
@@ -343,11 +340,13 @@ FIM_ALGORITMO
 ```
 #### Teste de mesa (0.5 ponto)
 
-| n	| i | fibnext | fib0 | fib1 | 
-|      --      |      --      |      --      |      --      |      --      | 
-| 3     |  1      |     |  0     | 1    |
-| 3   | 2          | 1        | 1 | 1  |
-| 3   | 3          | 2        | 1 | 2  |
+| it | n  | a  | b  | i  | saída | termo_atual = a + b | a = b | b = termo_atual |
+| -- | -- | -- | -- | -- | --    | --                  | --    | --              |
+| 1  | 5  | 0  | 1  | 1  | 0     | 0 + 1 = 1           | 1     | 1               |
+| 2  | 5  | 1  | 1  | 2  | 1     | 1 + 1 = 2           | 1     | 2               |
+| 3  | 5  | 1  | 2  | 3  | 1     | 1 + 2 = 3           | 2     | 3               |
+| 4  | 5  | 2  | 3  | 4  | 2     | 2 + 3 = 5           | 3     | 5               |
+| 4  | 5  | 3  | 5  | 5  | 3     | 3 + 5 = 8           | 5     | 8               |
 
 ### Questão 7 - Inversão dos dígitos de um número inteiro (2 pontos)
 
@@ -357,16 +356,19 @@ Implemente e teste um algoritmo para inverter a ordem dos dígitos de um número
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B[/invertido = 0, resto = 0/]
-B --> C{{Digite o número a ser invertido: }}
-C --> D[/num/]
-D --> E{num != 0}
-E --FALSE--> I{{invertido}}
-I --> Z([FIM])
-E --TRUE--> F[resto = num % 10]
-F --> G["invertido = (invertido * 10) + resto"]
-G --> H[num = num // 10]
-H --LOOP--> E
+A([INICIO]) --> B{{Digite um número inteiro: }}
+B --> C[\num\]
+C --> D{num >= 0}
+D --TRUE--> G[num_inv = 0]
+G --> H{num > 0}
+H --FALSE--> Z{{"Número invertido:", numero_inv}}
+Z --> W([FIM])
+H --TRUE--> I[digito = num % 10]
+I --> J[num_inv = num_inv * 10 + digito]
+J --> K[numero = numero // 10]
+K --LOOP--> H
+D --FALSE--> E{{O número deve ser positivo!}}
+E --> W
 ```
 
 #### Pseudocódigo (1.0 ponto)
@@ -393,9 +395,11 @@ FIM_ALGORITMO
 
 #### Teste de mesa (0.5 ponto)
 
-| num    | resto | invertido | 
-|      --      |      --      |      --      |  
-| 354     | 4         | 4     | 
-| 35    | 5          | 45        |
-| 3     | 3          | 453        |
+| it | num | num_inv | num > 0 | digito | num = num // 10 | num_inv = (num_inv * 10) + digito | Saída                       |
+| -- | --  | --      | --     | --      | --              | --                                | --                          |
+|    | -1  | 0       | False  |         |                 |                                   | O número deve ser positivo! |
+| 1  | 0   | 0       | False  |         |                 |                                   | Número invertido:: 0        |
+| 1  | 42  | 0       | True   | 2       | 4               | 2                                 |                             |
+| 2  | 4   | 2       | True   | 4       | 0               | 24                                |                             |
+| 3  | 0   | 24      | False  |         |                 |                                   | Número invertido:: 24       |
 

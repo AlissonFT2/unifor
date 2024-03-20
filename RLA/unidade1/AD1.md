@@ -63,17 +63,17 @@ G --> K([FIM])
 
 ```
 Algoritmo TrocaValores
-DECLARE a, b, temp: INT
+DECLARE a, b, aux: INT
 INICIO
 ESCREVA "Digite a: "
 LEIA a
 ESCREVA "Digite b: "
 LEIA b
-ESCREVA a, b
-temp <- a
+aux <- a
 a <- b
-b <- temp
-ESCREVA a, b
+b <- aux
+ESCREVA "a= ", a
+ESCREVA "b= ", b
 FIM_ALGORITMO
 ```
 
@@ -117,13 +117,13 @@ cont <- 0
 ESCREVA "Digite o número de notas a ser processado: "
 LEIA n
 PARA i=1 ATE n FAÇA
-	ESCREVA "Digite a nota: "
+	ESCREVA "Digite a nota ", i
 	LEIA nota
-	SE nota >= 50 and nota <= 100 ENTAO
+	SE 50 <= nota <= 100
 		cont <- cont + 1
 	FIM_SE
 FIM_PARA
-ESCREVA "O número total de aprovações é: cont", cont
+ESCREVA "Número de alunos aprovados: ", cont
 FIM_ALGORITMO
 ```
 
@@ -166,10 +166,10 @@ K --LOOP--> G
 #### Pseudocódigo (0.5 ponto)
 
 ```
-Algoritmo ContaAprovacoes
-DECLARE soma, i, num: INT
+Algoritmo SomaNumeros
+DECLARE soma, i, num, n: INT
 INICIO
-ESCREVA "Digite a quantidade de números que serão somados: "
+ESCREVA "Digite a quantidade de números (n >= 0): "
 LEIA n
 SE n >= 0 ENTAO
 	soma <- 0
@@ -179,9 +179,9 @@ SE n >= 0 ENTAO
 		LEIA num
 		soma <- soma + num
 	FIM_ENQUANTO
-	ESCREVA soma
+	ESCREVA "A soma dos números é: ", soma
 SENAO
-	ESCREVA "O número deve ser >=0"
+	ESCREVA "O valor deve ser maior ou iqual a zero!"
 FIM_SE
 FIM_ALGORITMO
 ```
@@ -221,7 +221,7 @@ G --LOOP--> D
 #### Pseudocódigo (0.5 ponto)
 
 ```
-Algoritmo ContaAprovacoes
+Algoritmo SomaSerie
 DECLARE numerador, denominador, n, i: INT, s: FLOAT
 INICIO
 numerador <- 1
@@ -270,19 +270,19 @@ H --> I
 #### Pseudocódigo (1.0 ponto)
 
 ```
-Algoritmo ContaAprovacoes
-DECLARE i, fatorial, num: INT
+Algoritmo CalcFatorial
+DECLARE i, fator, n: INT
 INICIO
 ESCREVA "Digite um número"
-LEIA num
-SE num >= 0
-	fatorial <- 1
+LEIA n
+SE n >= 0
+	fator <- 1
 	PARA i=1 ATE n FAÇA
-		fatorial <- fatorial * i
+		fator <- fator * i
 	FIM_PARA
-	ESCREVA fatorial
+	ESCREVA "O fatorial de {n} é: {fator}"
 SENAO
-ESCREVA "O valor deve ser positivo"
+	ESCREVA "O valor deve ser maior ou igual a zero!"
 FIM_SE
 FIM_ALGORITMO
 ```
@@ -326,16 +326,18 @@ I --LOOP--> E
 #### Pseudocódigo (1.0 ponto)
 
 ```
-Algoritmo ContaAprovacoes
-DECLARE fib0, fib1, fibnext, i, n: INT
+Algoritmo GeraFibonacci
+DECLARE a, b, termo_atual, i, n: INT
 INICIO
-ESCREVA "Quantos termos: "
+a <- 0
+b <- 1
+ESCREVA "Número de termos da série Fibonacci: "
 LEIA n
 PARA i=1 ATE n FAÇA
-	ESCREVA fib0
-	fibnext <- fib0 + fib1
-	fib0 <- fib1
-	fib1 <- fibnext
+	ESCREVA a
+	termo_atual <- a + b
+	a <- b
+	b <- termo_atual
 FIM_PARA
 FIM_ALGORITMO
 ```
@@ -370,22 +372,22 @@ H --LOOP--> E
 #### Pseudocódigo (1.0 ponto)
 
 ```
-Algoritmo ContaAprovacoes
-DECLARE invertido, resto, num: INT
+Algoritmo InverteInteiro
+DECLARE num_inv, resto, num: INT
 INICIO
-invertido <- 0
+num_inv <- 0
 resto <- 0
-ESCREVA "Digite o número a ser invertido: "
+ESCREVA "Digite um número inteiro: "
 LEIA num
 SE num >= 0 ENTAO
 	ENQUANTO num != 0 FAÇA
 		resto <- num % 10
-		invertido <- (invertido * 10) + resto
+		num_inv <- (num_inv * 10) + resto
 		num <- num // 10
 	FIM_ENQUANTO
-	ESCREVA invertido
+	ESCREVA "Número invertido: ", num_inv
 SENAO
-ESCREVA "O número não e positivo"
+	ESCREVA "O número deve ser positivo!"
 FIM_ALGORITMO
 ```
 

@@ -267,6 +267,8 @@ quant <- 0
 REPITA
 	ESCREVA "Digite a nota do aluno: "
 	LEIA nota
+	SE nota < 0 ENTAO
+		RETORNE
 	soma <- soma + nota
 	quant <- quant + 1
 ATE QUE nota < 0

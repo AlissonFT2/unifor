@@ -264,14 +264,13 @@ DECLARE media, soma, nota: FLOAT, quant: INT
 INICIO
 soma <- 0
 quant <- 0
-ESCREVA "Digite a nota do aluno, quando a nota for negativa a media vai parar: "
-LEIA n
-ENQUANTO n >= 0 FAÇA
-	soma <- soma + n
+REPITA
+	ESCREVA "Digite a nota do aluno: "
+	LEIA nota
+	soma <- soma + nota
 	quant <- quant + 1
-	ESCREVA "Digite outra nota: "
-	LEIA n
-FIM_LOOP
+ATE QUE n < 0
+FIM_REPITA
 media <- soma / quant
 ESCREVA "Foram lidas `quant` notas. A média aritmética é `media`", quant, 
 FIM_ALGORITMO
@@ -279,8 +278,8 @@ FIM_ALGORITMO
 
 #### Teste de mesa (0.5 ponto)
 
-| n | soma | quant | n >= 0 | media | 
+| n | soma | quant | n < 0 | media | 
 |      --      |      --      |      --      |      --      |      --      | 
-| 7.0     | 7.0       | 1    |  True     |     |
-| 4.0     | 10.0       | 2    |  True     |     |
-| -2.0     |        |     |  False     | 5.0    |
+| 7.0     | 7.0       | 1    |  False     |     |
+| 4.0     | 10.0       | 2    |  False     |     |
+| -2.0     |        |     |  True     | 5.0    |

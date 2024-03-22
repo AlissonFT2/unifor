@@ -269,7 +269,7 @@ REPITA
 	LEIA nota
 	soma <- soma + nota
 	quant <- quant + 1
-ATE QUE n < 0
+ATE QUE nota < 0
 FIM_REPITA
 media <- soma / quant
 ESCREVA "Foram lidas `quant` notas. A média aritmética é `media`", quant, 

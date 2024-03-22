@@ -195,43 +195,43 @@ Por exemplo, para a sequência {12, 17, 4, -6, 8, 0}, o seu programa deve escrev
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> Z[/soma/] 
-Z --> B{{Digite um número para adicionar a soma<br>caso o número seja igual a zero<br>a soma vai finalizar: }}
-B --> C[/n/]
-C --> D{n == 0}
-D --False--> E[soma =+ n]
-E --> F[/n/]
-F --LOOP--> D
-D --True--> G{{soma}}
-G --> H([FIM])
+A([INICIO]) --> B{{"Digite a quantidade de números:"}}
+B --> C[\n\]
+C --> D[soma = 0]
+D --> E[[i=1 ATE n, PASSO 1]]
+E --FALSE--> F{{A soma dos número é, soma}}
+F --> L([FIM])
+E --TRUE--> G{{Digite o número, i,:}}
+G --> H[\num\]
+H --> I[soma = soma + num]
+I --LOOP--> E
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
 ```
 Algoritmo ClassificaCategoria
-DECLARE soma, n: INT
+DECLARE soma, n, num: INT
 INICIO
 soma <- 0
-ESCREVA "Digite um número para adicionar a soma, quando o número for iqual a zero a soma vai finalizar: "
-REPITA
-	LEIA n
-	soma <- soma + n
-ATE_QUE n == 0
-FIM_LOOP
-ESCREVA soma
+ESCREVA "Digite a quantidade de números: "
+LEIA n
+PARA i=1 ATE n FAÇA
+	ESCREVA "Digite o número, ", i
+	LEIA num
+	soma <- soma + num
+FIM_PARA
+ESCREVA "A soma dos números é: ", soma
 FIM_ALGORITMO
 ```
 
 #### Teste de mesa (0.5 ponto)
 
-| n | soma | n == 0 | 
-|      --      |      --      | -- | 
-| 5     | 5       | False
-| 3   | 8          | False
-| 3   | 11          | False
-| -4   | 7          | False
-| 0   | 7          | True
+| n | soma | i | num |
+|      --      |      --      | -- |  -- |
+| 3     | 3       | 1 | 3 |
+| 3   | 9          | 2 | 6 |
+| 3   | 10          | 3 | 1 |
 
 ### Exercício 04 (2.5 pontos)
 Escreva um programa que leia a nota de diversos alunos, até que seja digitada uma nota negativa. 
